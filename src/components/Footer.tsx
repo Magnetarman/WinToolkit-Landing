@@ -3,15 +3,22 @@ import { FooterLink } from "./FooterLink";
 
 export function Footer() {
   return (
-    <footer className="bg-black/40 backdrop-blur-3xl border-t border-white/10 pt-12 sm:pt-16 pb-6 sm:pb-8 mt-8 sm:mt-12 rounded-t-[3rem] px-4 sm:px-6 relative overflow-hidden">
+    <footer
+      className="bg-black/40 backdrop-blur-3xl border-t border-white/10 pt-12 sm:pt-16 pb-6 sm:pb-8 mt-8 sm:mt-12 rounded-t-[3rem] px-4 sm:px-6 relative overflow-hidden"
+      role="contentinfo"
+      aria-label="Informazioni footer WinToolkit"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 sm:gap-8 relative z-10 mb-8 sm:mb-12">
         <div className="flex items-center gap-3 sm:gap-4">
           <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/5 rounded-2xl flex items-center justify-center shadow-inner shadow-white/5 border border-white/10 backdrop-blur-md overflow-hidden p-1.5">
             <img
               src="/wintoolkit/WinToolkit-icon.png"
-              alt="WinToolkit"
+              alt="WinToolkit Logo - Tool PowerShell per Windows"
               className="w-full h-full object-contain"
+              width={56}
+              height={56}
+              decoding="async"
             />
           </div>
           <div>

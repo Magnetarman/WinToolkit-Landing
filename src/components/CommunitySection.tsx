@@ -97,8 +97,11 @@ export function CommunitySection() {
         <div className="flex justify-center overflow-hidden">
           <img
             src="https://api.star-history.com/svg?repos=Magnetarman/WinToolkit&type=date&legend=bottom-right"
-            alt="Grafico della cronologia delle stelle su GitHub"
+            alt="Grafico della cronologia delle stelle GitHub - Andamento delle stelle del progetto WinToolkit nel tempo"
             loading="lazy"
+            decoding="async"
+            width={800}
+            height={300}
             className="w-full max-w-3xl h-auto rounded-xl bg-white/90 p-2 sm:p-4"
           />
         </div>

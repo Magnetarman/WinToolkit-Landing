@@ -7,6 +7,7 @@ import {
   CircleDot,
   CheckCircle,
   AlertTriangle,
+  Clock,
 } from "lucide-react";
 import { useState } from "react";
 import { useOnlineGitHubData } from "../hooks/useGitHubData";
@@ -340,9 +341,12 @@ export function RepositoryStatus() {
                 >
                   <img
                     src={contributor.avatar_url}
-                    alt={contributor.login}
+                    alt={`Avatar del contributore ${contributor.login} su GitHub`}
                     className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-white/20 mb-2 sm:mb-3 group-hover:border-cyan-500/50 transition-all duration-300"
                     loading="lazy"
+                    decoding="async"
+                    width={56}
+                    height={56}
                   />
                   <span className="text-white font-medium text-xs sm:text-sm truncate w-full">
                     {contributor.login}
