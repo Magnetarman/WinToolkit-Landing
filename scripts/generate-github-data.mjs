@@ -4,7 +4,7 @@
  * oppure come parte del build: npm run build
  */
 
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -12,11 +12,30 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = join(__dirname, "..", "public");
 const OUTPUT_FILE = join(PUBLIC_DIR, "github-data.json");
 
+// Read GitHub token from .env file
+let GITHUB_TOKEN = "";
+try {
+  const envFile = readFileSync(join(__dirname, "..", ".env"), "utf-8");
+  const match = envFile.match(/GITHUB_TOKEN=([^\s]+)/);
+  if (match) {
+    GITHUB_TOKEN = match[1];
+  }
+} catch (e) {
+  // Ignore if .env not found
+}
+
 const REPO_OWNER = "Magnetarman";
 const REPO_NAME = "WinToolkit";
 
+const headers = {
+  Accept: "application/vnd.github.v3+json",
+};
+if (GITHUB_TOKEN) {
+  headers.Authorization = `token ${GITHUB_TOKEN}`;
+}
+
 async function fetchJSON(url) {
-  const res = await fetch(url);
+  const res = await fetch(url, { headers });
   if (!res.ok) {
     console.error(`Errore fetch ${url}: ${res.status}`);
     return null;
@@ -25,7 +44,7 @@ async function fetchJSON(url) {
 }
 
 async function fetchText(url) {
-  const res = await fetch(url);
+  const res = await fetch(url, { headers });
   if (!res.ok) {
     console.error(`Errore fetch ${url}: ${res.status}`);
     return null;
@@ -37,22 +56,26 @@ async function generateGitHubData() {
   console.log("🔄 Generazione dati GitHub...");
 
   try {
-    // Fetch repository data, PRs, and issues
-    const [repo, prs, issues, mainScript, devScript] = await Promise.all([
-      fetchJSON(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`),
-      fetchJSON(
-        `https://api.github.com/search/issues?q=repo:${REPO_OWNER}/${REPO_NAME}+is:pr+state:open`,
-      ),
-      fetchJSON(
-        `https://api.github.com/search/issues?q=repo:${REPO_OWNER}/${REPO_NAME}+is:issue+state:open`,
-      ),
-      fetchText(
-        `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/main/WinToolkit.ps1`,
-      ),
-      fetchText(
-        `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/Dev/WinToolkit.ps1`,
-      ),
-    ]);
+    // Fetch all PRs (open + closed) for the count
+    const [repo, allPrs, prs, issues, mainScript, devScript] =
+      await Promise.all([
+        fetchJSON(`https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}`),
+        fetchJSON(
+          `https://api.github.com/search/issues?q=repo:${REPO_OWNER}/${REPO_NAME}+is:pr`,
+        ),
+        fetchJSON(
+          `https://api.github.com/search/issues?q=repo:${REPO_OWNER}/${REPO_NAME}+is:pr+state:open`,
+        ),
+        fetchJSON(
+          `https://api.github.com/search/issues?q=repo:${REPO_OWNER}/${REPO_NAME}+is:issue+state:open`,
+        ),
+        fetchText(
+          `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/main/WinToolkit.ps1`,
+        ),
+        fetchText(
+          `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/refs/heads/Dev/WinToolkit.ps1`,
+        ),
+      ]);
 
     // Extract versions
     let mainVersion = "v1.0.0";
@@ -136,7 +159,7 @@ async function generateGitHubData() {
       let page = 1;
       let hasMore = true;
 
-      while (hasMore && page <= 15) {
+      while (hasMore && page <= 50) {
         const devCommitsRes = await fetchJSON(
           `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits?sha=Dev&per_page=100&page=${page}`,
         );
@@ -190,15 +213,22 @@ async function generateGitHubData() {
       console.error("Errore fetching dev commits:", e.message);
     }
 
-    // Fetch contributors
+    // Fetch contributors - get from both main and Dev branches
     let contributors = [];
     try {
-      const contribRes = await fetchJSON(
+      // First try getting contributors from main branch
+      let contribRes = await fetchJSON(
         `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contributors?per_page=100`,
+      );
+
+      // Also get contributors from Dev branch by looking at recent commits
+      const devCommitsForContributors = await fetchJSON(
+        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/commits?sha=Dev&per_page=100&page=1`,
       );
 
       const uniqueUsers = new Map();
 
+      // Add contributors from main branch
       if (contribRes) {
         contribRes.forEach((user) => {
           if (user && user.login) {
@@ -212,6 +242,23 @@ async function generateGitHubData() {
             });
           }
         });
+      }
+
+      // Add contributors from Dev branch commits
+      if (devCommitsForContributors) {
+        for (const commit of devCommitsForContributors) {
+          const author = commit.author;
+          if (author && author.login && !uniqueUsers.has(author.login)) {
+            uniqueUsers.set(author.login, {
+              login: author.login,
+              avatar_url: author.avatar_url,
+              html_url: author.html_url,
+              contributions: 0, // Will be updated from main if available
+              prs: 0,
+              issues: 0,
+            });
+          }
+        }
       }
 
       // Get PRs count by user
@@ -306,7 +353,7 @@ async function generateGitHubData() {
         openIssues: issues?.total_count ?? 0,
         mainVersion,
         devVersion,
-        pullRequests: prs?.total_count ?? 0,
+        pullRequests: allPrs?.total_count ?? 0,
         mainCommits: mainCommits.total > 0 ? mainCommits : undefined,
         devCommits: devCommits.total > 0 ? devCommits : undefined,
         contributors: contributors.length > 0 ? contributors : undefined,

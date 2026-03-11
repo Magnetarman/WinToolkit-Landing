@@ -11,7 +11,7 @@ import {
   Footer,
   LazySection,
 } from "./components";
-import { useGitHubData } from "./hooks/useGitHubData";
+import { useOnlineGitHubData } from "./hooks/useGitHubData";
 import type { RepoData } from "./types";
 import { fallbackData } from "./types";
 
@@ -19,7 +19,7 @@ export default function App() {
   const [data, setData] = useState<RepoData>(fallbackData);
 
   // Use custom hook for GitHub data
-  const githubData = useGitHubData();
+  const githubData = useOnlineGitHubData();
 
   // Sync local state with hook data (for initial render)
   useEffect(() => {
@@ -71,11 +71,11 @@ export default function App() {
         </LazySection>
 
         <LazySection>
-          <StatsGrid data={data} />
+          {githubData.data && <StatsGrid data={githubData.data} />}
         </LazySection>
 
         <LazySection>
-          <RepositoryStatus data={data} />
+          <RepositoryStatus />
         </LazySection>
 
         {/* Partecipa al progetto - Lazy loaded */}
