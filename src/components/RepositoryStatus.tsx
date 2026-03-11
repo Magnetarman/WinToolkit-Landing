@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import {
   GitBranch,
@@ -9,23 +8,61 @@ import {
   CheckCircle,
   AlertTriangle,
 } from "lucide-react";
-import type { RepoData } from "../types";
+import { useOnlineGitHubData } from "../hooks/useGitHubData";
 
 type BranchTab = "main" | "dev";
 
-interface RepositoryStatusProps {
-  data: RepoData;
-}
-
-export function RepositoryStatus({ data }: RepositoryStatusProps) {
+export function RepositoryStatus() {
   const [activeBranch, setActiveBranch] = useState<BranchTab>("main");
+  const { data, loading, error } = useOnlineGitHubData();
 
   const branchData =
-    activeBranch === "main" ? data.mainCommits : data.devCommits;
+    activeBranch === "main" && data?.mainCommits
+      ? data.mainCommits
+      : activeBranch === "dev" && data?.devCommits
+        ? data.devCommits
+        : null;
   const branchLabel = activeBranch === "main" ? "Main" : "Dev";
 
   // Get last 24 weeks for the chart
   const weeklyData = branchData?.weekly?.slice(-24) || [];
+
+  if (error) {
+    return (
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16"
+      >
+        <div className="bg-white/[0.03] backdrop-blur-3xl rounded-[2.5rem] p-4 sm:p-6 md:p-8 shadow-2xl shadow-black/40 border border-white/10 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
+
+          <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="p-2 sm:p-3 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
+              <GitBranch className="text-slate-300" size={20} />
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
+              Stato Repository
+            </h3>
+          </div>
+
+          <div className="text-center py-12 sm:py-16">
+            <div className="text-slate-400 mb-4">
+              <AlertTriangle size={48} />
+            </div>
+            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">
+              Errore nel caricamento
+            </h4>
+            <p className="text-slate-500 text-sm">
+              Impossibile recuperare i dati dal server. Riprova più tardi.
+            </p>
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
 
   return (
     <motion.section
@@ -137,7 +174,7 @@ export function RepositoryStatus({ data }: RepositoryStatusProps) {
                   Commit Totali
                 </h4>
                 <div className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
-                  {data.loading ? (
+                  {loading ? (
                     <div className="h-8 sm:h-12 w-24 sm:w-32 bg-white/10 animate-pulse rounded-xl overflow-hidden relative">
                       <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                     </div>
@@ -258,7 +295,7 @@ export function RepositoryStatus({ data }: RepositoryStatusProps) {
                     })
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-500 text-sm">
-                      {data.loading ? (
+                      {loading ? (
                         <div className="flex gap-2 w-full justify-between items-end pb-6">
                           {[...Array(24)].map((_, i) => (
                             <div
@@ -290,7 +327,7 @@ export function RepositoryStatus({ data }: RepositoryStatusProps) {
             </h4>
           </div>
 
-          {data.contributors && data.contributors.length > 0 ? (
+          {data?.contributors && data.contributors.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {data.contributors.map((contributor) => (
                 <a
@@ -328,7 +365,7 @@ export function RepositoryStatus({ data }: RepositoryStatusProps) {
             </div>
           ) : (
             <div className="flex items-center justify-center py-8 text-slate-500">
-              {data.loading ? (
+              {loading ? (
                 <div className="flex gap-3">
                   {[...Array(5)].map((_, i) => (
                     <div

@@ -40,6 +40,18 @@ export default defineConfig(() => {
       cssCodeSplit: true,
       // Generate manifest file
       manifest: true,
+      // Pre-fetch GitHub data during build
+      writeBundle: () => {
+        const { execSync } = require("child_process");
+        try {
+          console.log("🔄 Pre-fetching GitHub data during build...");
+          execSync("node scripts/generate-github-data.mjs", {
+            stdio: "inherit",
+          });
+        } catch (error) {
+          console.error("❌ Error pre-fetching GitHub data:", error.message);
+        }
+      },
     },
     server: {
       // HMR configuration
