@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useOnlineGitHubData } from "./hooks/useGitHubData";
 import {
   Hero,
   DescriptionBox,
@@ -11,20 +11,10 @@ import {
   Footer,
   LazySection,
 } from "./components";
-import { useOnlineGitHubData } from "./hooks/useGitHubData";
-import type { RepoData } from "./types";
-import { fallbackData } from "./types";
 
 export default function App() {
-  const [data, setData] = useState<RepoData>(fallbackData);
-
   // Use custom hook for GitHub data
-  const githubData = useOnlineGitHubData();
-
-  // Sync local state with hook data (for initial render)
-  useEffect(() => {
-    setData(githubData);
-  }, [githubData]);
+  const { data: githubData } = useOnlineGitHubData();
 
   return (
     <div className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-hidden">
@@ -71,7 +61,7 @@ export default function App() {
         </LazySection>
 
         <LazySection>
-          {githubData.data && <StatsGrid data={githubData.data} />}
+          {githubData && <StatsGrid data={githubData} />}
         </LazySection>
 
         <LazySection>

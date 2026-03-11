@@ -91,7 +91,7 @@ async function generateGitHubData() {
     }
 
     // Fetch commit data for main branch
-    let mainCommits = { total: 0, weekly: [] };
+    let mainCommits = { total: 0, weekly: [], lastCommit: undefined };
     try {
       let allMainCommits = [];
       let page = 1;
@@ -110,6 +110,14 @@ async function generateGitHubData() {
       }
 
       mainCommits.total = allMainCommits.length;
+
+      // Get the last commit date (most recent)
+      if (allMainCommits.length > 0) {
+        const lastCommitDate = allMainCommits[0]?.commit?.author?.date;
+        if (lastCommitDate) {
+          mainCommits.lastCommit = lastCommitDate;
+        }
+      }
 
       // Calculate exactly 24 weeks of data
       const weeklyMap = new Map();
@@ -153,7 +161,7 @@ async function generateGitHubData() {
     }
 
     // Fetch commit data for dev branch
-    let devCommits = { total: 0, weekly: [] };
+    let devCommits = { total: 0, weekly: [], lastCommit: undefined };
     try {
       let allDevCommits = [];
       let page = 1;
@@ -172,6 +180,14 @@ async function generateGitHubData() {
       }
 
       devCommits.total = allDevCommits.length;
+
+      // Get the last commit date (most recent)
+      if (allDevCommits.length > 0) {
+        const lastCommitDate = allDevCommits[0]?.commit?.author?.date;
+        if (lastCommitDate) {
+          devCommits.lastCommit = lastCommitDate;
+        }
+      }
 
       const devWeeklyMap = new Map();
       const today = new Date();
@@ -353,7 +369,7 @@ async function generateGitHubData() {
         openIssues: issues?.total_count ?? 0,
         mainVersion,
         devVersion,
-        pullRequests: allPrs?.total_count ?? 0,
+        pullRequests: prs?.total_count ?? 0,
         mainCommits: mainCommits.total > 0 ? mainCommits : undefined,
         devCommits: devCommits.total > 0 ? devCommits : undefined,
         contributors: contributors.length > 0 ? contributors : undefined,

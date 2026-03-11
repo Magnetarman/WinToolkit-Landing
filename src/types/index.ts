@@ -1,6 +1,7 @@
 export interface CommitData {
   total: number;
   weekly: { count: number; date: string }[];
+  lastCommit?: string;
 }
 
 export interface Contributor {

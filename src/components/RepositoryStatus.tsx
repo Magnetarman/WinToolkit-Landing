@@ -188,6 +188,42 @@ export function RepositoryStatus() {
                   Totale commit sul ramo {branchLabel}
                 </p>
               </div>
+              {/* Last commit info */}
+              <div className="flex flex-col items-end mt-4 sm:mt-0">
+                <div className="flex items-center gap-2 text-xs text-slate-400 mb-1">
+                  <Clock size={14} />
+                  <span>Ultimo commit</span>
+                </div>
+                {loading ? (
+                  <div className="h-5 w-28 bg-white/10 animate-pulse rounded" />
+                ) : branchData?.lastCommit ? (
+                  <div className="text-right">
+                    <p className="text-white font-medium text-sm sm:text-base">
+                      {new Date(branchData.lastCommit).toLocaleDateString(
+                        "it-IT",
+                        {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        },
+                      )}
+                    </p>
+                    <p
+                      className={`${activeBranch === "main" ? "text-cyan-300" : "text-red-300"} text-xs sm:text-sm`}
+                    >
+                      {new Date(branchData.lastCommit).toLocaleTimeString(
+                        "it-IT",
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        },
+                      )}
+                    </p>
+                  </div>
+                ) : (
+                  <span className="text-slate-500 text-sm">N/A</span>
+                )}
+              </div>
             </div>
           </div>
 
