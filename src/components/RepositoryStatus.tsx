@@ -2,15 +2,16 @@ import { motion } from "motion/react";
 import {
   GitBranch,
   GitCommit,
-  Users,
   GitPullRequest,
   CircleDot,
   CheckCircle,
   AlertTriangle,
   Clock,
+  Star,
 } from "lucide-react";
 import { useState } from "react";
 import { useOnlineGitHubData } from "../hooks/useGitHubData";
+import { StatCard } from "./StatCard";
 
 type BranchTab = "main" | "dev";
 
@@ -85,6 +86,49 @@ export function RepositoryStatus() {
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
             Stato Repository
           </h3>
+        </div>
+
+        {/* GitHub Stats Row */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
+          <StatCard
+            title="Issue Aperte"
+            value={data?.openIssues ?? "-"}
+            description="Segnalazioni e bug aperti"
+            icon={<AlertTriangle className="text-amber-400" size={20} />}
+            loading={loading}
+            glowColor="rgba(251,191,36,0.15)"
+            href="https://github.com/Magnetarman/WinToolkit/issues"
+          />
+          <StatCard
+            title="Pull Requests"
+            value={data?.pullRequests ?? "-"}
+            description="Contributi in attesa"
+            icon={<GitPullRequest className="text-emerald-400" size={20} />}
+            loading={loading}
+            glowColor="rgba(52,211,153,0.15)"
+            href="https://github.com/Magnetarman/WinToolkit/pulls"
+          />
+          <StatCard
+            title="Stelle su GitHub"
+            value={data?.stars ?? "-"}
+            description="Apprezzamenti community"
+            icon={<Star className="text-yellow-400" size={20} />}
+            loading={loading}
+            glowColor="rgba(250,204,21,0.15)"
+            href="https://github.com/Magnetarman/WinToolkit/stargazers"
+          />
+        </div>
+
+        {/* Separator: Status Commit */}
+        <div className="relative py-4 sm:py-6 mb-4">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-white/10" />
+          </div>
+          <div className="relative flex justify-center">
+            <span className="bg-[#050505] px-4 text-xs font-bold text-slate-500 uppercase tracking-widest backdrop-blur-xl rounded-full border border-white/10 py-1">
+              Status Commit
+            </span>
+          </div>
         </div>
 
         {/* Branch Tabs */}
@@ -354,17 +398,20 @@ export function RepositoryStatus() {
           </div>
         </div>
 
-        {/* Contributors Section */}
-        <div className="border-t border-white/10 pt-6 sm:pt-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 sm:p-3 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
-              <Users className="text-slate-300" size={20} />
-            </div>
-            <h4 className="text-lg sm:text-xl font-bold text-white tracking-wide">
-              Contributori
-            </h4>
+        {/* Separator: Contributori Ramo Dev */}
+        <div className="relative py-4 sm:py-6 mb-4">
+          <div className="absolute inset-0 flex items-center" aria-hidden="true">
+            <div className="w-full border-t border-white/10" />
           </div>
+          <div className="relative flex justify-center">
+            <span className="bg-[#050505] px-4 text-xs font-bold text-slate-500 uppercase tracking-widest backdrop-blur-xl rounded-full border border-white/10 py-1">
+              Contributori Ramo Dev
+            </span>
+          </div>
+        </div>
 
+        {/* Contributors Section */}
+        <div className="pt-2 sm:pt-4">
           {data?.contributors && data.contributors.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4">
               {data.contributors.map((contributor) => (
@@ -425,3 +472,4 @@ export function RepositoryStatus() {
     </motion.section>
   );
 }
+

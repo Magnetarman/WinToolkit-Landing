@@ -11,7 +11,12 @@ export function useOnlineGitHubData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(GITHUB_DATA_URL);
+        const [response, guiResponse] = await Promise.all([
+          fetch(GITHUB_DATA_URL),
+          fetch(
+            "https://raw.githubusercontent.com/Magnetarman/WinToolkit/refs/heads/Dev/WinToolkit_GUI.ps1",
+          ),
+        ]);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -19,9 +24,23 @@ export function useOnlineGitHubData() {
 
         const jsonData = await response.json();
 
+        let guiVersion = "N/A";
+        if (guiResponse.ok) {
+          const guiScript = await guiResponse.text();
+          const versionMatch = guiScript.match(
+            /\$Global:GuiVersion\s*=\s*['"]([^'"]+)['"]/,
+          );
+          if (versionMatch && versionMatch[1]) {
+            guiVersion = versionMatch[1];
+          }
+        }
+
         // Validate the data structure
         if (jsonData && jsonData.data) {
-          setData(jsonData.data);
+          setData({
+            ...jsonData.data,
+            guiVersion,
+          });
           setError(false);
         } else {
           throw new Error("Invalid data structure");

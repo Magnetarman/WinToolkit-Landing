@@ -19,6 +19,7 @@ export interface RepoData {
   mainVersion: string;
   devVersion: string;
   pullRequests: number | string;
+  guiVersion?: string;
   loading: boolean;
   error: boolean;
   mainCommits?: CommitData;
@@ -32,6 +33,7 @@ export const fallbackData: RepoData = {
   mainVersion: "v1.0.0",
   devVersion: "latest",
   pullRequests: "-",
+  guiVersion: "-",
   loading: true,
   error: false,
   mainCommits: { total: 0, weekly: [] },

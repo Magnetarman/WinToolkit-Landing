@@ -49,7 +49,7 @@ export function Footer() {
 
       <div className="max-w-5xl mx-auto text-center border-t border-white/10 pt-6 sm:pt-8 relative z-10">
         <p className="text-slate-500 text-sm">
-          WinToolkit Landing Page V 1.3.0 - Designed By{" "}
+          WinToolkit Landing Page V 1.3.2 - Designed By{" "}
           <a
             href="https://magnetarman.com"
             target="_blank"

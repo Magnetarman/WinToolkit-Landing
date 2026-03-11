@@ -2,9 +2,8 @@ import { motion } from "motion/react";
 import {
   CheckCircle,
   AlertTriangle,
-  GitPullRequest,
-  Star,
   BarChart3,
+  Sparkles,
 } from "lucide-react";
 import { StatCard } from "./StatCard";
 import type { RepoData } from "../types";
@@ -29,7 +28,7 @@ export function StatsGrid({ data }: StatsGridProps) {
             <BarChart3 className="text-slate-300" size={20} />
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
-            Statistiche Live
+            Versioni Wintoolkit
           </h3>
         </div>
 
@@ -43,7 +42,7 @@ export function StatsGrid({ data }: StatsGridProps) {
           </div>
         )}
 
-        {/* Row 1: 2 Columns */}
+        {/* Row 1: 2 Columns (Stable & Dev) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <StatCard
             title="Versione Stabile"
@@ -65,34 +64,15 @@ export function StatsGrid({ data }: StatsGridProps) {
           />
         </div>
 
-        {/* Row 2: 3 Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        <div>
           <StatCard
-            title="Issue Aperte"
-            value={data.openIssues}
-            description="Segnalazioni e bug aperti"
-            icon={<AlertTriangle className="text-amber-400" size={20} />}
+            title="Versione GUI"
+            value={data.guiVersion || "N/A"}
+            description="Ultima Build GUI Edition"
+            icon={<Sparkles className="text-violet-400" size={20} />}
             loading={data.loading}
-            glowColor="rgba(251,191,36,0.15)"
-            href="https://github.com/Magnetarman/WinToolkit/issues"
-          />
-          <StatCard
-            title="Pull Requests"
-            value={data.pullRequests}
-            description="Contributi in attesa"
-            icon={<GitPullRequest className="text-emerald-400" size={20} />}
-            loading={data.loading}
-            glowColor="rgba(52,211,153,0.15)"
-            href="https://github.com/Magnetarman/WinToolkit/pulls"
-          />
-          <StatCard
-            title="Stelle su GitHub"
-            value={data.stars}
-            description="Apprezzamenti community"
-            icon={<Star className="text-yellow-400" size={20} />}
-            loading={data.loading}
-            glowColor="rgba(250,204,21,0.15)"
-            href="https://github.com/Magnetarman/WinToolkit/stargazers"
+            glowColor="rgba(139,92,246,0.15)"
+            borderColor="border-violet-500/30"
           />
         </div>
       </div>
