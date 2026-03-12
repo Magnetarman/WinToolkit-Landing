@@ -26,7 +26,7 @@ La pagina presenta in modo moderno e interattivo:
 ## 🔗 Progetto Principale
 
 > [!WARNING]
-> 
+>
 > Questa è la landing page del progetto. Il codice sorgente principale di WinToolkit è disponibile nel repository sottostante.
 
 [**WinToolkit su GitHub**](https://github.com/Magnetarman/WinToolkit) — Repository ufficiale del progetto
@@ -49,7 +49,7 @@ La pagina presenta in modo moderno e interattivo:
 3. **Requisiti di Sistema** — Specifiche minime e consigliate
 4. **Guida all'Installazione** — Istruzioni passo-passo
 5. **Video Dimostrativi** — Tutorial visuali
-6. **Statistiche GitHub** — Dati in tempo reale tra cui:
+6. **Statistiche GitHub** — Dati aggiornati automaticamente ogni ora:
    - ⭐ Numero di stelle
    - 🐛 Issue aperte
    - 📥 Pull request
@@ -57,13 +57,9 @@ La pagina presenta in modo moderno e interattivo:
    - 📊 Andamento commit settimanali (ultime 24 settimane)
    - 👥 Elenco contributori
 
-## ⚡ Funzionalità Avanzate
+## 🔄 Aggiornamento Dati GitHub
 
-### Sistema di Cache Intelligente
-
-- **Cache Locale**: I dati vengono salvati in localStorage per ridurre le chiamate API
-- **Aggiornamento Incrementale**: Ogni ora vengono sincronizzati solo i dati modificati
-- **Refresh Completo**: Ogni 24 ore viene eseguito un aggiornamento totale
+I dati delle statistiche GitHub vengono aggiornati automaticamente ogni ora tramite GitHub Action. Il sito fetch direttamente il file JSON dal repository GitHub remoto, garantendo dati sempre aggiornati senza necessità di rebuild.
 
 ## 🚀 Esecuzione del Progetto
 
@@ -94,6 +90,8 @@ npm run build
 
 I file ottimizzati saranno generati nella cartella `dist/`
 
+> **Nota**: Il comando `npm run build` esegue automaticamente la generazione del file `github-data.json` prima di creare la build.
+
 ### Preview della Build
 
 ```bash
@@ -108,7 +106,8 @@ Visualizza l'applicazione in locale prima del deploy.
 WinToolkit-LandingPage/
 ├── public/                  # File statici
 │   ├── header.jpg          # Banner principale
-│   └── WinToolkit-icon.png # Icona del progetto
+│   ├── WinToolkit-icon.png # Icona del progetto
+│   └── github-data.json    # Dati GitHub (auto-generato)
 ├── src/                     # Codice sorgente
 │   ├── components/         # Componenti React riutilizzabili
 │   │   ├── CommunitySection.tsx
@@ -132,6 +131,7 @@ WinToolkit-LandingPage/
 │   ├── index.css           # Stili globali
 │   └── main.tsx            # Entry point
 ├── dist/                   # Build di produzione
+├── .github/workflows/      # GitHub Actions
 ├── index.html
 ├── package.json
 ├── tsconfig.json
