@@ -1,7 +1,7 @@
 # WinToolkit Landing Page
 
 <div align="center">
-  <img width="1200" height="475" alt="WinToolkit Banner" src="public/header.jpg" />
+  <img width="1200" height="475" alt="WinToolkit Banner" src="header.jpg" />
 
 [![GitHub Stars](https://img.shields.io/github/stars/Magnetarman/WinToolkit?style=for-the-badge&color=06b6d4)](https://github.com/Magnetarman/WinToolkit/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Magnetarman/WinToolkit?style=for-the-badge&color=06b6d4)](https://github.com/Magnetarman/WinToolkit/network)
