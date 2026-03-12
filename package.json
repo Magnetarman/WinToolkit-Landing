@@ -4,12 +4,15 @@
   "version": "1.1.0",
   "type": "module",
   "description": "WinToolkit Landing Page - PowerShell tool for Windows maintenance",
-  "scripts": {
+"scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "build": "node scripts/generate-github-data.mjs && vite build",
+    "build:static": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "generate:github": "node scripts/generate-github-data.mjs",
+    "update:github": "node scripts/github-data-updater.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
