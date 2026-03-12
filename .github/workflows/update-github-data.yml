@@ -2,22 +2,24 @@ name: Update GitHub Data
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Ogni ora
-  workflow_dispatch:      # Permette esecuzione manuale
-  push:
-    branches:
-      - main
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'npm'
 
       - name: Install dependencies
@@ -28,12 +30,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build site
-        run: npm run build:static
-
-      - name: Deploy (configura il tuo metodo di deploy)
-        # Opzioni di deploy:
-        # - GitHub Pages: usa actions/upload-pages-artifact
-        # - FTP/SFTP: usa klakeggFTP-action
-        # - AWS S3: usa aws-actions/configure-aws-credentials
-        run: echo "Aggiungi il tuo step di deploy qui"
+      - name: Commit github-data.json
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update github-data.json"
+          file_pattern: public/github-data.json

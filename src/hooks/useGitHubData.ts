@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import type { RepoData } from "../types";
 
-const GITHUB_DATA_URL = "/wintoolkit/github-data.json";
+const GITHUB_DATA_URL =
+  "https://raw.githubusercontent.com/Magnetarman/WinToolkit-Landing/main/public/github-data.json";
 
 export function useOnlineGitHubData() {
   const [data, setData] = useState<RepoData | null>(null);
