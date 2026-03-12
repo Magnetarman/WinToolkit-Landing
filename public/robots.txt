@@ -1,0 +1,25 @@
+# robots.txt per WinToolkit Landing Page
+# https://magnetarman.com/wintoolkit/
+
+User-agent: *
+Allow: /
+
+# Posizione della sitemap
+Sitemap: https://magnetarman.com/wintoolkit/sitemap.xml
+
+# Regole specifiche per i motori di ricerca
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow per cartelle non necessarie (se presenti)
+Disallow: /api/
+Disallow: /_next/static/
