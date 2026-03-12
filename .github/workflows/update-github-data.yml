@@ -1,0 +1,39 @@
+name: Update GitHub Data
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Ogni ora
+  workflow_dispatch:      # Permette esecuzione manuale
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate GitHub data
+        run: npm run generate:github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build site
+        run: npm run build:static
+
+      - name: Deploy (configura il tuo metodo di deploy)
+        # Opzioni di deploy:
+        # - GitHub Pages: usa actions/upload-pages-artifact
+        # - FTP/SFTP: usa klakeggFTP-action
+        # - AWS S3: usa aws-actions/configure-aws-credentials
+        run: echo "Aggiungi il tuo step di deploy qui"
