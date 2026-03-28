@@ -1,8 +1,8 @@
 {
-  "timestamp": 1774681486867,
+  "timestamp": 1774703133807,
   "data": {
     "stars": 15,
-    "openIssues": 2,
+    "openIssues": 3,
     "mainVersion": "2.5.2 (Build 84)",
     "devVersion": "2.5.3 (Build 2)",
     "pullRequests": 0,
@@ -225,7 +225,7 @@
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
         "prs": 14,
-        "issues": 17
+        "issues": 18
       }
     ]
   }
