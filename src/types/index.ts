@@ -58,3 +58,4 @@ export type VersionStatus = "yes" | "partial" | "no";
 export type VersionTab = "stable" | "dev" | "gui";
 
 export type CommandColor = "cyan" | "red" | "violet" | "fuchsia";
+
