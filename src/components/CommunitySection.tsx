@@ -91,19 +91,26 @@ export function CommunitySection() {
           </div>
         </div>
 
-        <div className="w-full h-px bg-white/10 mb-8 sm:mb-12" />
+        <div className="w-full h-px bg-white/10 mb-6 sm:mb-8" />
 
-        {/* Lazy loaded star history image */}
-        <div className="flex justify-center overflow-hidden">
-          <img
-            src="https://api.star-history.com/svg?repos=Magnetarman/WinToolkit&type=date&legend=bottom-right"
-            alt="Grafico della cronologia delle stelle GitHub - Andamento delle stelle del progetto WinToolkit nel tempo"
-            loading="lazy"
-            decoding="async"
-            width={800}
-            height={300}
-            className="w-full max-w-3xl h-auto rounded-xl bg-white/90 p-2 sm:p-4"
-          />
+        {/* RepoStars embed */}
+        <div className="px-4 sm:px-6 md:px-8 pb-12 sm:pb-16 md:pb-20">
+          <a
+            href="https://repostars.dev/?repos=Magnetarman%2FWinToolkit&theme=dark"
+            target="_blank"
+            rel="noreferrer"
+            className="flex justify-center hover:opacity-90 transition-opacity"
+          >
+            <img
+              src="https://repostars.dev/api/embed?repo=Magnetarman%2FWinToolkit&theme=dark"
+              alt="Grafico della cronologia delle stelle GitHub - Andamento delle stelle del progetto WinToolkit nel tempo"
+              loading="lazy"
+              decoding="async"
+              width={800}
+              height={300}
+              className="w-full max-w-3xl h-auto rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-3 sm:p-5"
+            />
+          </a>
         </div>
       </div>
     </motion.section>
