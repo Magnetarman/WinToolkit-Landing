@@ -1,30 +1,14 @@
 {
-  "timestamp": 1776971930888,
+  "timestamp": 1779377886370,
   "data": {
     "stars": 19,
-    "openIssues": 5,
+    "openIssues": 3,
     "mainVersion": "2.5.3 (Build 13)",
-    "devVersion": "2.5.4 (Build 32)",
-    "pullRequests": 1,
+    "devVersion": "Sviluppo in Corso",
+    "pullRequests": 0,
     "mainCommits": {
-      "total": 50,
+      "total": 59,
       "weekly": [
-        {
-          "date": "2025-11-09",
-          "count": 1
-        },
-        {
-          "date": "2025-11-16",
-          "count": 0
-        },
-        {
-          "date": "2025-11-23",
-          "count": 0
-        },
-        {
-          "date": "2025-11-30",
-          "count": 0
-        },
         {
           "date": "2025-12-07",
           "count": 0
@@ -104,29 +88,29 @@
         {
           "date": "2026-04-19",
           "count": 0
+        },
+        {
+          "date": "2026-04-26",
+          "count": 0
+        },
+        {
+          "date": "2026-05-03",
+          "count": 0
+        },
+        {
+          "date": "2026-05-10",
+          "count": 8
+        },
+        {
+          "date": "2026-05-17",
+          "count": 1
         }
       ],
-      "lastCommit": "2026-04-14T21:56:15Z"
+      "lastCommit": "2026-05-20T15:12:29Z"
     },
     "devCommits": {
-      "total": 2252,
+      "total": 2358,
       "weekly": [
-        {
-          "date": "2025-11-09",
-          "count": 18
-        },
-        {
-          "date": "2025-11-16",
-          "count": 35
-        },
-        {
-          "date": "2025-11-23",
-          "count": 175
-        },
-        {
-          "date": "2025-11-30",
-          "count": 41
-        },
         {
           "date": "2025-12-07",
           "count": 3
@@ -206,17 +190,33 @@
         {
           "date": "2026-04-19",
           "count": 62
+        },
+        {
+          "date": "2026-04-26",
+          "count": 0
+        },
+        {
+          "date": "2026-05-03",
+          "count": 66
+        },
+        {
+          "date": "2026-05-10",
+          "count": 28
+        },
+        {
+          "date": "2026-05-17",
+          "count": 12
         }
       ],
-      "lastCommit": "2026-04-21T10:14:26Z"
+      "lastCommit": "2026-05-20T21:24:45Z"
     },
     "contributors": [
       {
         "login": "Magnetarman",
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
-        "contributions": 50,
-        "prs": 11,
+        "contributions": 58,
+        "prs": 25,
         "issues": 2
       },
       {
@@ -224,7 +224,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 19,
+        "prs": 3,
         "issues": 21
       }
     ]
