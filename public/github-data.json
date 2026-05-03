@@ -1,11 +1,11 @@
 {
-  "timestamp": 1777779683011,
+  "timestamp": 1777795594652,
   "data": {
     "stars": 18,
-    "openIssues": 0,
+    "openIssues": 5,
     "mainVersion": "2.5.3 (Build 13)",
     "devVersion": "2.5.4 (Build 32)",
-    "pullRequests": 0,
+    "pullRequests": 1,
     "mainCommits": {
       "total": 50,
       "weekly": [
@@ -216,16 +216,16 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
         "contributions": 50,
-        "prs": 0,
-        "issues": 0
+        "prs": 11,
+        "issues": 2
       },
       {
         "login": "pomodori92",
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 0,
-        "issues": 4
+        "prs": 19,
+        "issues": 21
       }
     ]
   }
