@@ -1,13 +1,13 @@
 {
-  "timestamp": 1778420342732,
+  "timestamp": 1778440307756,
   "data": {
     "stars": 18,
     "openIssues": 5,
     "mainVersion": "2.5.3 (Build 13)",
-    "devVersion": "2.5.4 (Build 44)",
+    "devVersion": "2.5.4 (Build 46)",
     "pullRequests": 0,
     "mainCommits": {
-      "total": 50,
+      "total": 53,
       "weekly": [
         {
           "date": "2025-11-30",
@@ -103,13 +103,13 @@
         },
         {
           "date": "2026-05-10",
-          "count": 0
+          "count": 3
         }
       ],
-      "lastCommit": "2026-04-14T21:56:15Z"
+      "lastCommit": "2026-05-10T15:02:04Z"
     },
     "devCommits": {
-      "total": 2320,
+      "total": 2326,
       "weekly": [
         {
           "date": "2025-11-30",
@@ -205,18 +205,18 @@
         },
         {
           "date": "2026-05-10",
-          "count": 2
+          "count": 8
         }
       ],
-      "lastCommit": "2026-05-10T00:05:47Z"
+      "lastCommit": "2026-05-10T15:04:00Z"
     },
     "contributors": [
       {
         "login": "Magnetarman",
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
-        "contributions": 50,
-        "prs": 15,
+        "contributions": 53,
+        "prs": 18,
         "issues": 2
       },
       {
@@ -224,7 +224,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 15,
+        "prs": 12,
         "issues": 21
       }
     ]
