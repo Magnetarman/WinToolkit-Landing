@@ -1,5 +1,5 @@
 {
-  "timestamp": 1778615958574,
+  "timestamp": 1778644217123,
   "data": {
     "stars": 18,
     "openIssues": 5,
@@ -109,7 +109,7 @@
       "lastCommit": "2026-05-12T11:52:48Z"
     },
     "devCommits": {
-      "total": 2326,
+      "total": 2331,
       "weekly": [
         {
           "date": "2025-11-30",
@@ -205,28 +205,10 @@
         },
         {
           "date": "2026-05-10",
-          "count": 8
+          "count": 13
         }
       ],
-      "lastCommit": "2026-05-10T15:04:00Z"
-    },
-    "contributors": [
-      {
-        "login": "Magnetarman",
-        "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
-        "html_url": "https://github.com/Magnetarman",
-        "contributions": 54,
-        "prs": 19,
-        "issues": 2
-      },
-      {
-        "login": "pomodori92",
-        "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
-        "html_url": "https://github.com/pomodori92",
-        "contributions": 0,
-        "prs": 11,
-        "issues": 21
-      }
-    ]
+      "lastCommit": "2026-05-12T23:01:48Z"
+    }
   }
 }
