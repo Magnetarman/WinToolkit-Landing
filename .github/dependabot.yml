@@ -1,0 +1,32 @@
+version: 2
+updates:
+  # GitHub Actions — aggiorna i SHA delle action pinned
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/Rome"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  # npm — aggiorna le dipendenze del progetto
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/Rome"
+    versioning-strategy: "increase-if-necessary"
+    groups:
+      npm-production:
+        dependency-type: "production"
+        patterns:
+          - "*"
+      npm-development:
+        dependency-type: "development"
+        patterns:
+          - "*"
+    open-pull-requests-limit: 10
