@@ -1,8 +1,8 @@
 {
-  "timestamp": 1778748227667,
+  "timestamp": 1778752867807,
   "data": {
     "stars": 18,
-    "openIssues": 0,
+    "openIssues": 5,
     "mainVersion": "2.5.3 (Build 13)",
     "devVersion": "2.5.4 (Build 46)",
     "pullRequests": 0,
@@ -216,24 +216,16 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
         "contributions": 56,
-        "prs": 0,
-        "issues": 0
-      },
-      {
-        "login": "dependabot[bot]",
-        "avatar_url": "https://avatars.githubusercontent.com/in/29110?v=4",
-        "html_url": "https://github.com/apps/dependabot",
-        "contributions": 1,
-        "prs": 0,
-        "issues": 0
+        "prs": 22,
+        "issues": 2
       },
       {
         "login": "pomodori92",
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 0,
-        "issues": 0
+        "prs": 6,
+        "issues": 21
       }
     ]
   }
