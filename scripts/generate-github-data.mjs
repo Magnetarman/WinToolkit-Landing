@@ -12,12 +12,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = join(__dirname, "..", "public");
 const OUTPUT_FILE = join(PUBLIC_DIR, "github-data.json");
 
-// Read GitHub token from .env file
-let GITHUB_TOKEN = "";
+// Read GitHub token: env var first (CI/CD), then .env file (local dev)
+let GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 try {
   const envFile = readFileSync(join(__dirname, "..", ".env"), "utf-8");
   const match = envFile.match(/GITHUB_TOKEN=([^\s]+)/);
-  if (match) {
+  if (match && match[1]) {
     GITHUB_TOKEN = match[1];
   }
 } catch (e) {
@@ -244,10 +244,12 @@ async function generateGitHubData() {
 
       const uniqueUsers = new Map();
 
+      const isBot = (login) => login === "dependabot[bot]" || login.toLowerCase().includes("dependabot");
+
       // Add contributors from main branch
       if (contribRes) {
         contribRes.forEach((user) => {
-          if (user && user.login) {
+          if (user && user.login && !isBot(user.login)) {
             uniqueUsers.set(user.login, {
               login: user.login,
               avatar_url: user.avatar_url,
@@ -264,12 +266,12 @@ async function generateGitHubData() {
       if (devCommitsForContributors) {
         for (const commit of devCommitsForContributors) {
           const author = commit.author;
-          if (author && author.login && !uniqueUsers.has(author.login)) {
+          if (author && author.login && !isBot(author.login) && !uniqueUsers.has(author.login)) {
             uniqueUsers.set(author.login, {
               login: author.login,
               avatar_url: author.avatar_url,
               html_url: author.html_url,
-              contributions: 0, // Will be updated from main if available
+              contributions: 0,
               prs: 0,
               issues: 0,
             });
