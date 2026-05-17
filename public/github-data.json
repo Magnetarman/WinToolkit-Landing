@@ -1,5 +1,5 @@
 {
-  "timestamp": 1778958698454,
+  "timestamp": 1778990021436,
   "data": {
     "stars": 18,
     "openIssues": 3,
@@ -9,10 +9,6 @@
     "mainCommits": {
       "total": 58,
       "weekly": [
-        {
-          "date": "2025-11-30",
-          "count": 0
-        },
         {
           "date": "2025-12-07",
           "count": 0
@@ -104,6 +100,10 @@
         {
           "date": "2026-05-10",
           "count": 8
+        },
+        {
+          "date": "2026-05-17",
+          "count": 0
         }
       ],
       "lastCommit": "2026-05-14T17:17:40Z"
@@ -111,10 +111,6 @@
     "devCommits": {
       "total": 2346,
       "weekly": [
-        {
-          "date": "2025-11-30",
-          "count": 41
-        },
         {
           "date": "2025-12-07",
           "count": 3
@@ -206,6 +202,10 @@
         {
           "date": "2026-05-10",
           "count": 28
+        },
+        {
+          "date": "2026-05-17",
+          "count": 0
         }
       ],
       "lastCommit": "2026-05-14T17:18:42Z"
