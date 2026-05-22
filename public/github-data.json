@@ -1,13 +1,13 @@
 {
-  "timestamp": 1779442585283,
+  "timestamp": 1779461274900,
   "data": {
     "stars": 19,
-    "openIssues": 1,
+    "openIssues": 3,
     "mainVersion": "2.5.3 (Build 13)",
     "devVersion": "Sviluppo in Corso",
     "pullRequests": 0,
     "mainCommits": {
-      "total": 60,
+      "total": 61,
       "weekly": [
         {
           "date": "2025-12-07",
@@ -103,13 +103,13 @@
         },
         {
           "date": "2026-05-17",
-          "count": 2
+          "count": 3
         }
       ],
-      "lastCommit": "2026-05-22T07:51:57Z"
+      "lastCommit": "2026-05-22T11:21:03Z"
     },
     "devCommits": {
-      "total": 2358,
+      "total": 2369,
       "weekly": [
         {
           "date": "2025-12-07",
@@ -205,17 +205,17 @@
         },
         {
           "date": "2026-05-17",
-          "count": 12
+          "count": 23
         }
       ],
-      "lastCommit": "2026-05-20T21:24:45Z"
+      "lastCommit": "2026-05-22T14:23:47Z"
     },
     "contributors": [
       {
         "login": "Magnetarman",
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
-        "contributions": 58,
+        "contributions": 59,
         "prs": 24,
         "issues": 2
       },
