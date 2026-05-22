@@ -1,26 +1,14 @@
 {
-  "timestamp": 1779442585283,
+  "timestamp": 1781238249791,
   "data": {
-    "stars": 19,
-    "openIssues": 1,
-    "mainVersion": "2.5.3 (Build 13)",
-    "devVersion": "Sviluppo in Corso",
-    "pullRequests": 0,
+    "stars": 20,
+    "openIssues": 3,
+    "mainVersion": "2.5.4 (Build 47)",
+    "devVersion": "2.5.4 (Build 47)",
+    "pullRequests": 1,
     "mainCommits": {
-      "total": 60,
+      "total": 64,
       "weekly": [
-        {
-          "date": "2025-12-07",
-          "count": 0
-        },
-        {
-          "date": "2025-12-14",
-          "count": 0
-        },
-        {
-          "date": "2025-12-21",
-          "count": 0
-        },
         {
           "date": "2025-12-28",
           "count": 0
@@ -103,26 +91,26 @@
         },
         {
           "date": "2026-05-17",
-          "count": 2
-        }
-      ],
-      "lastCommit": "2026-05-22T07:51:57Z"
-    },
-    "devCommits": {
-      "total": 2358,
-      "weekly": [
-        {
-          "date": "2025-12-07",
           "count": 3
         },
         {
-          "date": "2025-12-14",
-          "count": 8
+          "date": "2026-05-24",
+          "count": 2
         },
         {
-          "date": "2025-12-21",
-          "count": 13
+          "date": "2026-05-31",
+          "count": 1
         },
+        {
+          "date": "2026-06-07",
+          "count": 0
+        }
+      ],
+      "lastCommit": "2026-06-05T10:42:48Z"
+    },
+    "devCommits": {
+      "total": 2386,
+      "weekly": [
         {
           "date": "2025-12-28",
           "count": 35
@@ -205,18 +193,30 @@
         },
         {
           "date": "2026-05-17",
-          "count": 12
+          "count": 30
+        },
+        {
+          "date": "2026-05-24",
+          "count": 9
+        },
+        {
+          "date": "2026-05-31",
+          "count": 1
+        },
+        {
+          "date": "2026-06-07",
+          "count": 0
         }
       ],
-      "lastCommit": "2026-05-20T21:24:45Z"
+      "lastCommit": "2026-06-04T18:50:55Z"
     },
     "contributors": [
       {
         "login": "Magnetarman",
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
-        "contributions": 58,
-        "prs": 24,
+        "contributions": 61,
+        "prs": 22,
         "issues": 2
       },
       {
@@ -224,7 +224,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 3,
+        "prs": 4,
         "issues": 21
       }
     ]
