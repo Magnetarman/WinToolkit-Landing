@@ -1,8 +1,8 @@
 {
-  "timestamp": 1779524689774,
+  "timestamp": 1779543940014,
   "data": {
     "stars": 19,
-    "openIssues": 0,
+    "openIssues": 3,
     "mainVersion": "2.5.3 (Build 13)",
     "devVersion": "2.5.4 (Build 46)",
     "pullRequests": 0,
@@ -109,63 +109,63 @@
       "lastCommit": "2026-05-22T11:21:03Z"
     },
     "devCommits": {
-      "total": 400,
+      "total": 2376,
       "weekly": [
         {
           "date": "2025-12-07",
-          "count": 0
+          "count": 3
         },
         {
           "date": "2025-12-14",
-          "count": 0
+          "count": 8
         },
         {
           "date": "2025-12-21",
-          "count": 0
+          "count": 13
         },
         {
           "date": "2025-12-28",
-          "count": 0
+          "count": 35
         },
         {
           "date": "2026-01-04",
-          "count": 0
+          "count": 197
         },
         {
           "date": "2026-01-11",
-          "count": 0
+          "count": 114
         },
         {
           "date": "2026-01-18",
-          "count": 0
+          "count": 59
         },
         {
           "date": "2026-01-25",
-          "count": 0
+          "count": 58
         },
         {
           "date": "2026-02-01",
-          "count": 0
+          "count": 36
         },
         {
           "date": "2026-02-08",
-          "count": 0
+          "count": 8
         },
         {
           "date": "2026-02-15",
-          "count": 0
+          "count": 73
         },
         {
           "date": "2026-02-22",
-          "count": 0
+          "count": 16
         },
         {
           "date": "2026-03-01",
-          "count": 0
+          "count": 146
         },
         {
           "date": "2026-03-08",
-          "count": 80
+          "count": 165
         },
         {
           "date": "2026-03-15",
