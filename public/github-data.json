@@ -1,11 +1,11 @@
 {
-  "timestamp": 1780603836459,
+  "timestamp": 1780632696017,
   "data": {
     "stars": 20,
     "openIssues": 3,
     "mainVersion": "2.5.4 (Build 47)",
     "devVersion": "2.5.4 (Build 47)",
-    "pullRequests": 1,
+    "pullRequests": 2,
     "mainCommits": {
       "total": 63,
       "weekly": [
