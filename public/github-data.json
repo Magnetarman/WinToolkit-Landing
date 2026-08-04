@@ -1,13 +1,13 @@
 {
-  "timestamp": 1785811999262,
+  "timestamp": 1785833066709,
   "data": {
     "stars": 20,
     "openIssues": 2,
     "mainVersion": "2.5.4 (Build 47)",
     "devVersion": "2.5.5 (Build 4)",
-    "pullRequests": 1,
+    "pullRequests": 0,
     "mainCommits": {
-      "total": 68,
+      "total": 69,
       "weekly": [
         {
           "date": "2026-02-22",
@@ -103,10 +103,10 @@
         },
         {
           "date": "2026-08-02",
-          "count": 0
+          "count": 1
         }
       ],
-      "lastCommit": "2026-07-27T20:47:52Z"
+      "lastCommit": "2026-08-04T08:13:41Z"
     },
     "devCommits": {
       "total": 2398,
@@ -216,7 +216,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
         "contributions": 61,
-        "prs": 16,
+        "prs": 15,
         "issues": 2
       },
       {
