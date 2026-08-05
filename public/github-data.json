@@ -1,10 +1,10 @@
 {
-  "timestamp": 1785872511051,
+  "timestamp": 1785898197430,
   "data": {
     "stars": 20,
     "openIssues": 2,
     "mainVersion": "2.5.4 (Build 47)",
-    "devVersion": "Sviluppo in Corso",
+    "devVersion": "2.5.5 (Build 4)",
     "pullRequests": 0,
     "mainCommits": {
       "total": 69,
@@ -109,7 +109,7 @@
       "lastCommit": "2026-08-04T08:13:41Z"
     },
     "devCommits": {
-      "total": 2417,
+      "total": 2431,
       "weekly": [
         {
           "date": "2026-02-22",
@@ -205,10 +205,10 @@
         },
         {
           "date": "2026-08-02",
-          "count": 19
+          "count": 33
         }
       ],
-      "lastCommit": "2026-08-04T19:11:26Z"
+      "lastCommit": "2026-08-04T23:55:23Z"
     },
     "contributors": [
       {
