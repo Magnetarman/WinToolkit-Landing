@@ -1,7 +1,10 @@
 import { Github, Send } from "lucide-react";
 import { FooterLink } from "./FooterLink";
+import { useTranslation } from "../i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer
       className="bg-black/40 backdrop-blur-3xl border-t border-white/10 pt-12 sm:pt-16 pb-6 sm:pb-8 mt-8 sm:mt-12 rounded-t-[3rem] px-4 sm:px-6 relative overflow-hidden"
@@ -26,7 +29,7 @@ export function Footer() {
               WinToolkit
             </span>
             <span className="text-sm text-slate-400 font-light">
-              Sopravvivi a Windows, con stile
+              {t.footer.slogan}
             </span>
           </div>
         </div>
@@ -49,7 +52,7 @@ export function Footer() {
 
       <div className="max-w-5xl mx-auto text-center border-t border-white/10 pt-6 sm:pt-8 relative z-10">
         <p className="text-slate-500 text-sm">
-          WinToolkit Landing Page V 1.3.3 - Designed By{" "}
+          {t.footer.version}{" "}
           <a
             href="https://magnetarman.com"
             target="_blank"
@@ -59,7 +62,7 @@ export function Footer() {
           >
             Magnetarman
           </a>{" "}
-          | Coded by Gemini
+          {t.footer.codedBy}
         </p>
       </div>
     </footer>

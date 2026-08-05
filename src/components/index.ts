@@ -12,3 +12,4 @@ export { StatCard } from "./StatCard";
 export { VersionCard } from "./VersionCard";
 export { FooterLink } from "./FooterLink";
 export { LazySection } from "./LazySection";
+export { LanguageSwitcher } from "./LanguageSwitcher";

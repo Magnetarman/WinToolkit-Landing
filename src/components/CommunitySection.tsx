@@ -1,7 +1,10 @@
 import { motion } from "motion/react";
 import { Users, MessageCircle, Star, Youtube } from "lucide-react";
+import { useTranslation } from "../i18n/LanguageContext";
 
 export function CommunitySection() {
+  const { t, language } = useTranslation();
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -20,7 +23,7 @@ export function CommunitySection() {
             <Users className="text-slate-300" size={24} />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
-            Partecipa al progetto
+            {t.community.title}
           </h2>
         </div>
 
@@ -31,19 +34,27 @@ export function CommunitySection() {
               target="_blank"
               rel="noreferrer"
               aria-label="Gruppo di discussione Telegram (apre in una nuova finestra)"
-              className="bg-white/[0.02] backdrop-blur-xl rounded-[2rem] p-4 sm:p-6 shadow-2xl border border-white/10 flex flex-col items-center text-center hover:-translate-y-2 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(6,182,212,0.1)] transition-all duration-500 group min-h-[44px] focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-[#050505]"
+              className="relative bg-white/[0.02] backdrop-blur-xl rounded-[2rem] p-4 sm:p-6 shadow-2xl border border-white/10 flex flex-col items-center text-center hover:-translate-y-2 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(6,182,212,0.1)] transition-all duration-500 group min-h-[44px] focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-[#050505]"
             >
-              <div className="p-3 sm:p-4 bg-blue-500/20 rounded-2xl border border-blue-500/30 mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-blue-500/30 group-hover:border-blue-500/40 transition-all duration-500 backdrop-blur-md">
-                <MessageCircle
-                  className="text-blue-400 group-hover:text-blue-300 transition-colors"
-                  size={28}
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Gruppo di Discussione
-              </h3>
+               <div className="p-3 sm:p-4 bg-blue-500/20 rounded-2xl border border-blue-500/30 mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-blue-500/30 group-hover:border-blue-500/40 transition-all duration-500 backdrop-blur-md">
+                 <MessageCircle
+                   className="text-blue-400 group-hover:text-blue-300 transition-colors"
+                   size={28}
+                 />
+               </div>
+               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                 {t.community.telegramTitle}
+               </h3>
+               {language === "en" && (
+                 <span
+                   className="absolute -top-1 -right-1 rounded bg-gradient-to-r from-cyan-400 via-sky-400 to-fuchsia-400 px-1.5 py-1 text-[8px] font-bold uppercase leading-none text-slate-950 whitespace-nowrap sm:text-[10px] rotate-12"
+                   aria-hidden="true"
+                 >
+                   {t.community.italianOnly}
+                 </span>
+               )}
               <p className="text-slate-400 text-sm">
-                Unisciti alla community su Telegram per supporto e feedback.
+                {t.community.telegramDesc}
               </p>
             </a>
 
@@ -61,10 +72,10 @@ export function CommunitySection() {
                 />
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Dona una Stella
+                {t.community.githubTitle}
               </h3>
               <p className="text-slate-400 text-sm">
-                Supporta il progetto su GitHub per renderlo più visibile.
+                {t.community.githubDesc}
               </p>
             </a>
 
@@ -73,19 +84,27 @@ export function CommunitySection() {
               target="_blank"
               rel="noreferrer"
               aria-label="Canale YouTube (apre in una nuova finestra)"
-              className="bg-white/[0.02] backdrop-blur-xl rounded-[2rem] p-4 sm:p-6 shadow-2xl border border-white/10 flex flex-col items-center text-center hover:-translate-y-2 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(239,68,68,0.1)] transition-all duration-500 group min-h-[44px] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-[#050505]"
+              className="relative bg-white/[0.02] backdrop-blur-xl rounded-[2rem] p-4 sm:p-6 shadow-2xl border border-white/10 flex flex-col items-center text-center hover:-translate-y-2 hover:bg-white/[0.08] hover:border-white/20 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(239,68,68,0.1)] transition-all duration-500 group min-h-[44px] focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-[#050505]"
             >
-              <div className="p-3 sm:p-4 bg-red-500/20 rounded-2xl border border-red-500/30 mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-red-500/30 group-hover:border-red-500/40 transition-all duration-500 backdrop-blur-md">
-                <Youtube
-                  className="text-red-400 group-hover:text-red-300 transition-colors"
-                  size={28}
-                />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                Iscriviti al Canale
-              </h3>
+               <div className="p-3 sm:p-4 bg-red-500/20 rounded-2xl border border-red-500/30 mb-3 sm:mb-4 group-hover:scale-110 group-hover:bg-red-500/30 group-hover:border-red-500/40 transition-all duration-500 backdrop-blur-md">
+                 <Youtube
+                   className="text-red-400 group-hover:text-red-300 transition-colors"
+                   size={28}
+                 />
+               </div>
+               <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                 {t.community.youtubeTitle}
+               </h3>
+               {language === "en" && (
+                 <span
+                   className="absolute -top-1 -right-1 rounded bg-gradient-to-r from-cyan-400 via-sky-400 to-fuchsia-400 px-1.5 py-1 text-[8px] font-bold uppercase leading-none text-slate-950 whitespace-nowrap sm:text-[10px] rotate-12"
+                   aria-hidden="true"
+                 >
+                   {t.community.italianOnly}
+                 </span>
+               )}
               <p className="text-slate-400 text-sm">
-                Rimani aggiornato con i video tutorial e le live.
+                {t.community.youtubeDesc}
               </p>
             </a>
           </div>

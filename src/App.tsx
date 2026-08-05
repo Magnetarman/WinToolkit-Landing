@@ -1,3 +1,4 @@
+import { LanguageProvider, useTranslation } from "./i18n/LanguageContext";
 import { useOnlineGitHubData } from "./hooks/useGitHubData";
 import {
   Hero,
@@ -12,9 +13,9 @@ import {
   LazySection,
 } from "./components";
 
-export default function App() {
-  // Use custom hook for GitHub data
+function AppContent() {
   const { data: githubData } = useOnlineGitHubData();
+  const { language } = useTranslation();
 
   return (
     <div className="min-h-screen bg-[#050505] text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-hidden">
@@ -47,34 +48,34 @@ export default function App() {
         <Hero />
 
         {/* Project Description Box - Lazy loaded */}
-        <LazySection>
+        <LazySection key={`desc-${language}`}>
           <DescriptionBox />
         </LazySection>
 
         {/* Avvia WinToolkit Macro Section - Lazy loaded */}
-        <LazySection>
+        <LazySection key={`req-${language}`}>
           <RequirementsSection />
         </LazySection>
 
-        <LazySection>
+        <LazySection key={`ver-${language}`}>
           <VersionTabs />
         </LazySection>
 
-        <LazySection>
+        <LazySection key={`stats-${language}`}>
           {githubData && <StatsGrid data={githubData} />}
         </LazySection>
 
-        <LazySection>
+        <LazySection key={`repo-${language}`}>
           <RepositoryStatus />
         </LazySection>
 
         {/* Partecipa al progetto - Lazy loaded */}
-        <LazySection>
+        <LazySection key={`comm-${language}`}>
           <CommunitySection />
         </LazySection>
 
         {/* YouTube Section - Lazy loaded */}
-        <LazySection>
+        <LazySection key={`yt-${language}`}>
           <YouTubeSection />
         </LazySection>
 
@@ -82,5 +83,13 @@ export default function App() {
         <Footer />
       </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

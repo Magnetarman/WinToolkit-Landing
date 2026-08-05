@@ -3,10 +3,12 @@ import { CheckCircle, AlertTriangle, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import { CopyCommand } from "./CopyCommand";
 import type { VersionTab } from "../types";
+import { useTranslation } from "../i18n/LanguageContext";
 
 export function VersionTabs() {
   const [activeVersionTab, setActiveVersionTab] =
     useState<VersionTab>("stable");
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -48,8 +50,8 @@ export function VersionTabs() {
                 size={16}
               />
             </div>
-            <span className="hidden sm:inline">Versione Stabile</span>
-            <span className="sm:hidden">Stabile</span>
+            <span className="hidden sm:inline">{t.versionTabs.stable}</span>
+            <span className="sm:hidden">{t.versionTabs.stableShort}</span>
             {activeVersionTab === "stable" && (
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
             )}
@@ -79,8 +81,8 @@ export function VersionTabs() {
                 size={16}
               />
             </div>
-            <span className="hidden sm:inline">Versione Dev</span>
-            <span className="sm:hidden">Dev</span>
+            <span className="hidden sm:inline">{t.versionTabs.dev}</span>
+            <span className="sm:hidden">{t.versionTabs.devShort}</span>
             {activeVersionTab === "dev" && (
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-red-500 to-transparent" />
             )}
@@ -115,8 +117,8 @@ export function VersionTabs() {
                 size={16}
               />
             </div>
-            <span className="hidden sm:inline">Versione GUI</span>
-            <span className="sm:hidden">GUI</span>
+            <span className="hidden sm:inline">{t.versionTabs.gui}</span>
+            <span className="sm:hidden">{t.versionTabs.guiShort}</span>
             {activeVersionTab === "gui" && (
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
             )}
@@ -141,19 +143,18 @@ export function VersionTabs() {
                     <CheckCircle className="text-cyan-300" size={20} />
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                    Versione Stabile
+                    {t.versionTabs.stable}
                   </h3>
                 </div>
                 <p className="text-slate-400 mb-4 sm:mb-6 text-sm sm:text-lg font-light">
-                  La versione stabile e testata. Consigliata per l'uso
-                  quotidiano e per tutti gli utenti che cercano affidabilità.
+                  {t.versionTabs.stableDesc}
                 </p>
                 <div className="mb-4 sm:mb-6">
                   <p className="text-slate-300 font-medium mb-1 text-sm">
-                    1. Avvia PowerShell come amministratore
+                    {t.versionTabs.step1}
                   </p>
                   <p className="text-slate-300 font-medium text-sm">
-                    2. Incolla il comando:
+                    {t.versionTabs.step2}
                   </p>
                 </div>
                 <CopyCommand
@@ -177,7 +178,7 @@ export function VersionTabs() {
                     <AlertTriangle className="text-red-300" size={20} />
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                    Versione Dev
+                    {t.versionTabs.dev}
                   </h3>
                   <span className="px-2 sm:px-3 py-1 bg-red-500/20 text-red-300 text-xs font-bold rounded-full uppercase tracking-wider border border-red-500/30 backdrop-blur-md shadow-[0_0_10px_rgba(239,68,68,0.2)]">
                     Warning
@@ -185,17 +186,16 @@ export function VersionTabs() {
                 </div>
                 <p className="text-slate-400 mb-4 sm:mb-6 text-sm sm:text-lg font-light">
                   <strong className="text-red-400 font-medium">
-                    Versione sperimentale.
+                    {t.versionTabs.devDesc.split(".")[0]}.
                   </strong>{" "}
-                  Potenziali bug critici, instabilità. Uso a proprio rischio per
-                  test e sviluppo.
+                  {t.versionTabs.devDesc.split(".").slice(1).join(".").trim()}
                 </p>
                 <div className="mb-4 sm:mb-6">
                   <p className="text-slate-300 font-medium mb-1 text-sm">
-                    1. Avvia PowerShell come amministratore
+                    {t.versionTabs.step1}
                   </p>
                   <p className="text-slate-300 font-medium text-sm">
-                    2. Incolla il comando:
+                    {t.versionTabs.step2}
                   </p>
                 </div>
                 <CopyCommand
@@ -219,7 +219,7 @@ export function VersionTabs() {
                     <Sparkles className="text-violet-300" size={20} />
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
-                    Versione GUI
+                    {t.versionTabs.gui}
                   </h3>
                   <span className="px-2 sm:px-3 py-1 bg-violet-500/20 text-violet-300 text-xs font-bold rounded-full uppercase tracking-wider border border-violet-500/30 backdrop-blur-md shadow-[0_0_10px_rgba(139,92,246,0.2)]">
                     ALPHA
@@ -227,17 +227,16 @@ export function VersionTabs() {
                 </div>
                 <p className="text-slate-400 mb-4 sm:mb-6 text-sm sm:text-lg font-light">
                   <strong className="text-violet-400 font-medium">
-                    Versione ALPHA.
+                    {t.versionTabs.guiDesc.split(".")[0]}.
                   </strong>{" "}
-                  Potenziali bug critici, instabilità, funzionalità incomplete.
-                  Uso a proprio rischio per test e feedback.
+                  {t.versionTabs.guiDesc.split(".").slice(1).join(".").trim()}
                 </p>
                 <div className="mb-4 sm:mb-6">
                   <p className="text-slate-300 font-medium mb-1 text-sm">
-                    1. Avvia PowerShell come amministratore
+                    {t.versionTabs.step1}
                   </p>
                   <p className="text-slate-300 font-medium text-sm">
-                    2. Incolla il comando:
+                    {t.versionTabs.step2}
                   </p>
                 </div>
                 <CopyCommand

@@ -12,12 +12,14 @@ import {
 import { useState } from "react";
 import { useOnlineGitHubData } from "../hooks/useGitHubData";
 import { StatCard } from "./StatCard";
+import { useTranslation } from "../i18n/LanguageContext";
 
 type BranchTab = "main" | "dev";
 
 export function RepositoryStatus() {
   const [activeBranch, setActiveBranch] = useState<BranchTab>("main");
   const { data, loading, error } = useOnlineGitHubData();
+  const { t } = useTranslation();
 
   const branchData =
     activeBranch === "main" && data?.mainCommits
@@ -25,7 +27,7 @@ export function RepositoryStatus() {
       : activeBranch === "dev" && data?.devCommits
         ? data.devCommits
         : null;
-  const branchLabel = activeBranch === "main" ? "Main" : "Dev";
+  const branchLabel = activeBranch === "main" ? t.repoStatus.mainBranch : t.repoStatus.devBranch;
 
   // Get last 24 weeks for the chart
   const weeklyData = branchData?.weekly?.slice(-24) || [];
@@ -47,7 +49,7 @@ export function RepositoryStatus() {
               <GitBranch className="text-slate-300" size={20} />
             </div>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
-              Stato Repository
+              {t.repoStatus.title}
             </h3>
           </div>
 
@@ -56,10 +58,10 @@ export function RepositoryStatus() {
               <AlertTriangle size={48} />
             </div>
             <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">
-              Errore nel caricamento
+              {t.repoStatus.errorTitle}
             </h4>
             <p className="text-slate-500 text-sm">
-              Impossibile recuperare i dati dal server. Riprova più tardi.
+              {t.repoStatus.errorText}
             </p>
           </div>
         </div>
@@ -84,34 +86,34 @@ export function RepositoryStatus() {
             <GitBranch className="text-slate-300" size={20} />
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
-            Stato Repository
+            {t.repoStatus.title}
           </h3>
         </div>
 
         {/* GitHub Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
           <StatCard
-            title="Issue Aperte"
+            title={t.repoStatus.openIssues}
             value={data?.openIssues ?? "-"}
-            description="Segnalazioni e bug aperti"
+            description={t.repoStatus.issuesDesc}
             icon={<AlertTriangle className="text-amber-400" size={20} />}
             loading={loading}
             glowColor="rgba(251,191,36,0.15)"
             href="https://github.com/Magnetarman/WinToolkit/issues"
           />
           <StatCard
-            title="Pull Requests"
+            title={t.repoStatus.pullRequests}
             value={data?.pullRequests ?? "-"}
-            description="Contributi in attesa"
+            description={t.repoStatus.prsDesc}
             icon={<GitPullRequest className="text-emerald-400" size={20} />}
             loading={loading}
             glowColor="rgba(52,211,153,0.15)"
             href="https://github.com/Magnetarman/WinToolkit/pulls"
           />
           <StatCard
-            title="Stelle su GitHub"
+            title={t.repoStatus.stars}
             value={data?.stars ?? "-"}
-            description="Apprezzamenti community"
+            description={t.repoStatus.starsDesc}
             icon={<Star className="text-yellow-400" size={20} />}
             loading={loading}
             glowColor="rgba(250,204,21,0.15)"
@@ -126,7 +128,7 @@ export function RepositoryStatus() {
           </div>
           <div className="relative flex justify-center">
             <span className="bg-[#050505] px-4 text-xs font-bold text-slate-500 uppercase tracking-widest backdrop-blur-xl rounded-full border border-white/10 py-1">
-              Status Commit
+              {t.repoStatus.commitStatus}
             </span>
           </div>
         </div>
@@ -157,7 +159,7 @@ export function RepositoryStatus() {
                 size={16}
               />
             </div>
-            <span>Ramo Main</span>
+            <span>{t.repoStatus.mainBranch}</span>
             {activeBranch === "main" && (
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
             )}
@@ -187,7 +189,7 @@ export function RepositoryStatus() {
                 size={16}
               />
             </div>
-            <span>Ramo Dev</span>
+            <span>{t.repoStatus.devBranch}</span>
             {activeBranch === "dev" && (
               <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-red-500 to-transparent" />
             )}
@@ -217,7 +219,7 @@ export function RepositoryStatus() {
             <div className="relative z-10 flex w-full items-center justify-between">
               <div>
                 <h4 className="text-slate-400 font-medium tracking-wide text-sm sm:mb-2">
-                  Commit Totali
+                  {t.repoStatus.totalCommits}
                 </h4>
                 <div className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-md">
                   {loading ? (
@@ -236,7 +238,7 @@ export function RepositoryStatus() {
               <div className="flex flex-col items-end mt-4 sm:mt-0">
                 <div className="flex items-center gap-2 text-xs text-slate-400 mb-1">
                   <Clock size={14} />
-                  <span>Ultimo commit</span>
+                  <span>{t.repoStatus.lastCommit}</span>
                 </div>
                 {loading ? (
                   <div className="h-5 w-28 bg-white/10 animate-pulse rounded" />
@@ -293,10 +295,10 @@ export function RepositoryStatus() {
               <div className="flex items-center justify-between mb-8">
                 <div>
                   <h4 className="text-slate-300 font-bold tracking-wide text-lg">
-                    Andamento Sviluppo
+                    {t.repoStatus.developmentTrend}
                   </h4>
                   <p className="text-xs sm:text-sm text-slate-500 mt-1 font-light">
-                    Frequenza commit delle ultime 24 settimane
+                    {t.repoStatus.commitFreq}
                   </p>
                 </div>
                 <div
@@ -388,7 +390,7 @@ export function RepositoryStatus() {
                           ))}
                         </div>
                       ) : (
-                        "Nessun dato disponibile"
+                        t.repoStatus.noData
                       )}
                     </div>
                   )}
@@ -405,7 +407,7 @@ export function RepositoryStatus() {
           </div>
           <div className="relative flex justify-center">
             <span className="bg-[#050505] px-4 text-xs font-bold text-slate-500 uppercase tracking-widest backdrop-blur-xl rounded-full border border-white/10 py-1">
-              Contributori Ramo Dev
+              {t.repoStatus.contributorsTitle}
             </span>
           </div>
         </div>
@@ -463,7 +465,7 @@ export function RepositoryStatus() {
                   ))}
                 </div>
               ) : (
-                <p>Nessun contributore trovato</p>
+                <p>{t.repoStatus.noContributors}</p>
               )}
             </div>
           )}

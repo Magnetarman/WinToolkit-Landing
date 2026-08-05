@@ -7,12 +7,15 @@ import {
 } from "lucide-react";
 import { StatCard } from "./StatCard";
 import type { RepoData } from "../types";
+import { useTranslation } from "../i18n/LanguageContext";
 
 interface StatsGridProps {
   data: RepoData;
 }
 
 export function StatsGrid({ data }: StatsGridProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -28,7 +31,7 @@ export function StatsGrid({ data }: StatsGridProps) {
             <BarChart3 className="text-slate-300" size={20} />
           </div>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-wide">
-            Versioni Wintoolkit
+            {t.stats.title}
           </h3>
         </div>
 
@@ -36,8 +39,7 @@ export function StatsGrid({ data }: StatsGridProps) {
         {data.error && (
           <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
             <p className="text-red-300 text-sm">
-              Impossibile caricare le statistiche. I dati potrebbero non essere
-              aggiornati.
+              {t.stats.error}
             </p>
           </div>
         )}
@@ -45,18 +47,18 @@ export function StatsGrid({ data }: StatsGridProps) {
         {/* Row 1: 2 Columns (Stable & Dev) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
           <StatCard
-            title="Versione Stabile"
+            title={t.stats.stable}
             value={data.mainVersion}
-            description="Ultima release stabile"
+            description={t.stats.stableDesc}
             icon={<CheckCircle className="text-cyan-400" size={20} />}
             loading={data.loading}
             glowColor="rgba(6,182,212,0.15)"
             borderColor="border-cyan-500/30"
           />
           <StatCard
-            title="Versione DEV"
+            title={t.stats.dev}
             value={data.devVersion}
-            description="Ultima build di sviluppo"
+            description={t.stats.devDesc}
             icon={<AlertTriangle className="text-red-400" size={20} />}
             loading={data.loading}
             glowColor="rgba(239,68,68,0.15)"
@@ -66,9 +68,9 @@ export function StatsGrid({ data }: StatsGridProps) {
 
         <div>
           <StatCard
-            title="Versione GUI"
+            title={t.stats.gui}
             value={data.guiVersion || "N/A"}
-            description="Ultima Build GUI Edition"
+            description={t.stats.guiDesc}
             icon={<Sparkles className="text-violet-400" size={20} />}
             loading={data.loading}
             glowColor="rgba(139,92,246,0.15)"

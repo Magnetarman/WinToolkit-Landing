@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslation } from "../i18n/LanguageContext";
 
 export function Hero() {
+  const { t, language } = useTranslation();
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -28,15 +32,16 @@ export function Hero() {
           </div>
 
           {/* Cyberpunk title with neon gradient */}
-          <header>
+          <header className="flex flex-col items-center gap-3">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-slate-400 tracking-tight drop-shadow-lg">
               WinToolkit
             </h1>
+            <LanguageSwitcher />
           </header>
         </div>
 
         <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-400 mb-4 leading-relaxed max-w-2xl mx-auto font-light">
-          Il Tool Powershell definitivo per sopravvivere a Windows
+          {t.hero.tagline}
         </p>
       </div>
     </motion.section>

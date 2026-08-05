@@ -1,7 +1,10 @@
 import { Info } from "lucide-react";
 import { motion } from "motion/react";
+import { useTranslation } from "../i18n/LanguageContext";
 
 export function DescriptionBox() {
+  const { t } = useTranslation();
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -17,19 +20,11 @@ export function DescriptionBox() {
             <Info className="text-cyan-300" size={20} />
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-white tracking-wide">
-            Cos'è WinToolkit?
+            {t.description.title}
           </h2>
         </div>
         <p className="text-slate-300 leading-relaxed text-sm sm:text-lg font-light">
-          WinToolkit è una suite di script PowerShell potente e compatta,
-          progettata per offrire a professionisti IT, amministratori di sistema
-          e utenti esperti un controllo granulare sulla manutenzione e sulla
-          risoluzione dei problemi di Windows e della Suite Office. Questo
-          toolkit intuitivo aggrega gli strumenti di riparazione di sistema più
-          efficaci in un'unica interfaccia, automatizzando i processi complessi
-          per ottimizzare le prestazioni e ripristinare la stabilità del sistema
-          con pochi passaggi automatizzati. Questo progetto è traslitterato
-          tramite un workflow AI.
+          {t.description.text}
         </p>
       </div>
     </motion.section>
