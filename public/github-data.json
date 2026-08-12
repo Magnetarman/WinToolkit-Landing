@@ -1,10 +1,10 @@
 {
-  "timestamp": 1786475185348,
+  "timestamp": 1786500958667,
   "data": {
     "stars": 20,
     "openIssues": 2,
     "mainVersion": "2.5.4 (Build 47)",
-    "devVersion": "2.6.0 (Build 5)",
+    "devVersion": "latest",
     "pullRequests": 1,
     "mainCommits": {
       "total": 69,
@@ -109,7 +109,7 @@
       "lastCommit": "2026-08-04T08:13:41Z"
     },
     "devCommits": {
-      "total": 2445,
+      "total": 2448,
       "weekly": [
         {
           "date": "2026-03-01",
@@ -201,14 +201,14 @@
         },
         {
           "date": "2026-08-02",
-          "count": 47
+          "count": 48
         },
         {
           "date": "2026-08-09",
-          "count": 0
+          "count": 2
         }
       ],
-      "lastCommit": "2026-08-08T11:16:02Z"
+      "lastCommit": "2026-08-11T22:00:33Z"
     },
     "contributors": [
       {
@@ -216,7 +216,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
         "contributions": 61,
-        "prs": 19,
+        "prs": 18,
         "issues": 2
       },
       {
@@ -224,7 +224,7 @@
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 5,
+        "prs": 6,
         "issues": 21
       }
     ]
