@@ -16,12 +16,13 @@ Landing page ufficiale per **[WinToolkit](https://github.com/Magnetarman/WinTool
 
 La pagina presenta in modo moderno e interattivo:
 
-- Visualizzazione delle versioni disponibili (Main e Dev)
+- Visualizzazione delle versioni disponibili (Stable, Dev e GUI)
 - Caratteristiche principali del tool
-- Requisiti di sistema
-- Istruzioni di installazione
+- Requisiti di sistema (Windows >= 10 1809, >= 50 GB di spazio libero su disco, connessione Internet)
+- Istruzioni di installazione con copia rapida dei comandi
 - Video dimostrativi
 - Statistiche in tempo reale del repository GitHub
+- Supporto completo bilingual (Italiano / English) con selettore lingua
 
 ## 🔗 Progetto Principale
 
@@ -44,12 +45,12 @@ La pagina presenta in modo moderno e interattivo:
 
 ## ✨ Caratteristiche Principali
 
-1. **Visualizzazione Versioni** — Download per versione Main (stabile) e Dev (sviluppo)
+1. **Visualizzazione Versioni** — Download per versione Stable (stabile), Dev (sviluppo) e GUI (ALPHA)
 2. **Funzionalità** — Panoramica completa delle capacità del tool
-3. **Requisiti di Sistema** — Specifiche minime e consigliate
-4. **Guida all'Installazione** — Istruzioni passo-passo
+3. **Requisiti di Sistema** — Windows >= 10 (1809), >= 50 GB di spazio libero su disco e connessione Internet
+4. **Guida all'Installazione** — Istruzioni passo-passo con copia rapida dei comandi
 5. **Video Dimostrativi** — Tutorial visuali
-6. **Statistiche GitHub** — Dati aggiornati automaticamente ogni ora:
+6. **Statistiche GitHub** — Dati aggiornati automaticamente ogni 6 ore:
    - ⭐ Numero di stelle
    - 🐛 Issue aperte
    - 📥 Pull request
@@ -59,7 +60,7 @@ La pagina presenta in modo moderno e interattivo:
 
 ## 🔄 Aggiornamento Dati GitHub
 
-I dati delle statistiche GitHub vengono aggiornati automaticamente ogni ora tramite GitHub Action. Il sito fetch direttamente il file JSON dal repository GitHub remoto, garantendo dati sempre aggiornati senza necessità di rebuild.
+I dati delle statistiche GitHub vengono aggiornati automaticamente ogni 6 ore tramite GitHub Action (cron `0 */6 * * *`). Il sito fetch direttamente il file JSON dal repository GitHub remoto, garantendo dati sempre aggiornati senza necessità di rebuild.
 
 ## 🚀 Esecuzione del Progetto
 
@@ -103,7 +104,7 @@ Visualizza l'applicazione in locale prima del deploy.
 ## 📁 Struttura del Progetto
 
 ```
-WinToolkit-LandingPage/
+WinToolkit-Landing/
 ├── public/                  # File statici
 │   ├── header.jpg          # Banner principale
 │   ├── WinToolkit-icon.png # Icona del progetto
@@ -114,19 +115,28 @@ WinToolkit-LandingPage/
 │   │   ├── CopyCommand.tsx
 │   │   ├── DescriptionBox.tsx
 │   │   ├── Footer.tsx
+│   │   ├── FooterLink.tsx
 │   │   ├── Hero.tsx
+│   │   ├── LanguageSwitcher.tsx
+│   │   ├── LazySection.tsx
 │   │   ├── RepositoryStatus.tsx
 │   │   ├── RequirementsSection.tsx
 │   │   ├── StatCard.tsx
 │   │   ├── StatsGrid.tsx
 │   │   ├── VersionCard.tsx
 │   │   ├── VersionTabs.tsx
-│   │   └── YouTubeSection.tsx
+│   │   ├── YouTubeSection.tsx
+│   │   └── index.ts
 │   ├── hooks/              # Custom hooks
 │   │   ├── useGitHubData.ts
 │   │   └── useLazySection.ts
+│   ├── i18n/               # Internazionalizzazione (IT/EN)
+│   │   ├── LanguageContext.tsx
+│   │   └── translations.ts
 │   ├── types/              # Definizioni TypeScript
+│   │   └── index.ts
 │   ├── utils/              # Funzioni di utilità
+│   │   └── cache.ts
 │   ├── App.tsx             # Componente principale
 │   ├── index.css           # Stili globali
 │   └── main.tsx            # Entry point
