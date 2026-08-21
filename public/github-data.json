@@ -1,46 +1,14 @@
 {
-  "timestamp": 1787316902720,
+  "timestamp": 1791694731512,
   "data": {
-    "stars": 21,
-    "openIssues": 2,
+    "stars": 22,
+    "openIssues": 6,
     "mainVersion": "2.5.4 (Build 47)",
     "devVersion": "2.6.0 (Build 5)",
-    "pullRequests": 0,
+    "pullRequests": 1,
     "mainCommits": {
-      "total": 69,
+      "total": 75,
       "weekly": [
-        {
-          "date": "2026-03-08",
-          "count": 0
-        },
-        {
-          "date": "2026-03-15",
-          "count": 0
-        },
-        {
-          "date": "2026-03-22",
-          "count": 4
-        },
-        {
-          "date": "2026-03-29",
-          "count": 4
-        },
-        {
-          "date": "2026-04-05",
-          "count": 0
-        },
-        {
-          "date": "2026-04-12",
-          "count": 1
-        },
-        {
-          "date": "2026-04-19",
-          "count": 0
-        },
-        {
-          "date": "2026-04-26",
-          "count": 0
-        },
         {
           "date": "2026-05-03",
           "count": 0
@@ -104,45 +72,45 @@
         {
           "date": "2026-08-16",
           "count": 0
-        }
-      ],
-      "lastCommit": "2026-08-04T08:13:41Z"
-    },
-    "devCommits": {
-      "total": 2463,
-      "weekly": [
-        {
-          "date": "2026-03-08",
-          "count": 165
         },
         {
-          "date": "2026-03-15",
-          "count": 16
+          "date": "2026-08-23",
+          "count": 5
         },
         {
-          "date": "2026-03-22",
-          "count": 25
-        },
-        {
-          "date": "2026-03-29",
-          "count": 37
-        },
-        {
-          "date": "2026-04-05",
-          "count": 35
-        },
-        {
-          "date": "2026-04-12",
-          "count": 21
-        },
-        {
-          "date": "2026-04-19",
-          "count": 62
-        },
-        {
-          "date": "2026-04-26",
+          "date": "2026-08-30",
           "count": 0
         },
+        {
+          "date": "2026-09-06",
+          "count": 0
+        },
+        {
+          "date": "2026-09-13",
+          "count": 0
+        },
+        {
+          "date": "2026-09-20",
+          "count": 0
+        },
+        {
+          "date": "2026-09-27",
+          "count": 1
+        },
+        {
+          "date": "2026-10-04",
+          "count": 0
+        },
+        {
+          "date": "2026-10-11",
+          "count": 0
+        }
+      ],
+      "lastCommit": "2026-09-29T15:53:45Z"
+    },
+    "devCommits": {
+      "total": 2566,
+      "weekly": [
         {
           "date": "2026-05-03",
           "count": 66
@@ -205,27 +173,67 @@
         },
         {
           "date": "2026-08-16",
-          "count": 3
+          "count": 10
+        },
+        {
+          "date": "2026-08-23",
+          "count": 24
+        },
+        {
+          "date": "2026-08-30",
+          "count": 6
+        },
+        {
+          "date": "2026-09-06",
+          "count": 0
+        },
+        {
+          "date": "2026-09-13",
+          "count": 1
+        },
+        {
+          "date": "2026-09-20",
+          "count": 1
+        },
+        {
+          "date": "2026-09-27",
+          "count": 64
+        },
+        {
+          "date": "2026-10-04",
+          "count": 0
+        },
+        {
+          "date": "2026-10-11",
+          "count": 0
         }
       ],
-      "lastCommit": "2026-08-19T21:17:21Z"
+      "lastCommit": "2026-10-03T13:55:05Z"
     },
     "contributors": [
       {
         "login": "Magnetarman",
         "avatar_url": "https://avatars.githubusercontent.com/u/40738529?v=4",
         "html_url": "https://github.com/Magnetarman",
-        "contributions": 61,
-        "prs": 26,
-        "issues": 2
+        "contributions": 65,
+        "prs": 24,
+        "issues": 4
       },
       {
         "login": "pomodori92",
         "avatar_url": "https://avatars.githubusercontent.com/u/45762339?v=4",
         "html_url": "https://github.com/pomodori92",
         "contributions": 0,
-        "prs": 3,
-        "issues": 21
+        "prs": 4,
+        "issues": 26
+      },
+      {
+        "login": "github-actions[bot]",
+        "avatar_url": "https://avatars.githubusercontent.com/in/15368?v=4",
+        "html_url": "https://github.com/apps/github-actions",
+        "contributions": 0,
+        "prs": 0,
+        "issues": 0
       }
     ]
   }
