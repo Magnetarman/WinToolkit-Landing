@@ -10,107 +10,107 @@
 
 </div>
 
-## 📋 Descrizione
+## 📋 Description
 
-Landing page ufficiale per **[WinToolkit](https://github.com/Magnetarman/WinToolkit)**, un potente strumento PowerShell per la manutenzione e l'ottimizzazione di sistemi Windows.
+Official landing page for **[WinToolkit](https://github.com/Magnetarman/WinToolkit)**, a powerful PowerShell tool for maintaining and optimizing Windows systems.
 
-La pagina presenta in modo moderno e interattivo:
+The page presents in a modern and interactive way:
 
-- Visualizzazione delle versioni disponibili (Stable, Dev e GUI)
-- Caratteristiche principali del tool
-- Requisiti di sistema (Windows >= 10 1809, >= 50 GB di spazio libero su disco, connessione Internet)
-- Istruzioni di installazione con copia rapida dei comandi
-- Video dimostrativi
-- Statistiche in tempo reale del repository GitHub
-- Supporto completo bilingual (Italiano / English) con selettore lingua
+- Available versions overview (Stable, Dev and GUI)
+- Main features of the tool
+- System requirements (Windows >= 10 1809, >= 50 GB of free disk space, Internet connection)
+- Installation instructions with quick command copy
+- Demonstration videos
+- Real-time GitHub repository statistics
+- Full bilingual support (Italian / English) with a language switcher
 
-## 🔗 Progetto Principale
+## 🔗 Main Project
 
 > [!WARNING]
 >
-> Questa è la landing page del progetto. Il codice sorgente principale di WinToolkit è disponibile nel repository sottostante.
+> This is the project's landing page. The main WinToolkit source code is available in the repository below.
 
-[**WinToolkit su GitHub**](https://github.com/Magnetarman/WinToolkit) — Repository ufficiale del progetto
+[**WinToolkit on GitHub**](https://github.com/Magnetarman/WinToolkit) — Official project repository
 
-## 🛠️ Tecnologie Utilizzate
+## 🛠️ Technologies Used
 
-| Tecnologia      | Descrizione                                   |
-| --------------- | --------------------------------------------- |
-| React 19        | Libreria UI per la creazione dell'interfaccia |
-| TypeScript      | Tipizzazione statica per codice più sicuro    |
-| Vite            | Tool di build veloce e moderno                |
-| Tailwind CSS v4 | Framework CSS utility-first                   |
-| Lucide React    | Libreria di icone                             |
-| Motion React    | Libreria per animazioni                       |
+| Technology      | Description                                |
+| --------------- | ------------------------------------------ |
+| React 19        | UI library for building the interface      |
+| TypeScript      | Static typing for safer code               |
+| Vite            | Fast and modern build tool                 |
+| Tailwind CSS v4 | Utility-first CSS framework                |
+| Lucide React    | Icon library                               |
+| Motion React    | Animation library                          |
 
-## ✨ Caratteristiche Principali
+## ✨ Main Features
 
-1. **Visualizzazione Versioni** — Download per versione Stable (stabile), Dev (sviluppo) e GUI (ALPHA)
-2. **Funzionalità** — Panoramica completa delle capacità del tool
-3. **Requisiti di Sistema** — Windows >= 10 (1809), >= 50 GB di spazio libero su disco e connessione Internet
-4. **Guida all'Installazione** — Istruzioni passo-passo con copia rapida dei comandi
-5. **Video Dimostrativi** — Tutorial visuali
-6. **Statistiche GitHub** — Dati aggiornati automaticamente ogni 6 ore:
-   - ⭐ Numero di stelle
-   - 🐛 Issue aperte
-   - 📥 Pull request
-   - 📦 Versioni disponibili
-   - 📊 Andamento commit settimanali (ultime 24 settimane)
-   - 👥 Elenco contributori
+1. **Version Overview** — Downloads for the Stable (stable), Dev (development) and GUI (ALPHA) versions
+2. **Features** — Complete overview of the tool's capabilities
+3. **System Requirements** — Windows >= 10 (1809), >= 50 GB of free disk space and Internet connection
+4. **Installation Guide** — Step-by-step instructions with quick command copy
+5. **Demonstration Videos** — Visual tutorials
+6. **GitHub Statistics** — Data automatically updated every 6 hours:
+   - ⭐ Number of stars
+   - 🐛 Open issues
+   - 📥 Pull requests
+   - 📦 Available versions
+   - 📊 Weekly commit trend (last 24 weeks)
+   - 👥 Contributors list
 
-## 🔄 Aggiornamento Dati GitHub
+## 🔄 GitHub Data Update
 
-I dati delle statistiche GitHub vengono aggiornati automaticamente ogni 6 ore tramite GitHub Action (cron `0 */6 * * *`). Il sito fetch direttamente il file JSON dal repository GitHub remoto, garantendo dati sempre aggiornati senza necessità di rebuild.
+The GitHub statistics data is automatically updated every 6 hours via a GitHub Action (cron `0 */6 * * *`). The site fetches the JSON file directly from the remote GitHub repository, ensuring always up-to-date data without the need for a rebuild.
 
-## 🚀 Esecuzione del Progetto
+## 🚀 Running the Project
 
-### Prerequisiti
+### Prerequisites
 
 - Node.js 18+
 - npm 9+
 
-### Installazione Dipendenze
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Avvio in Modalità Sviluppo
+### Start in Development Mode
 
 ```bash
 npm run dev
 ```
 
-Il server di sviluppo sarà disponibile su: `http://localhost:3000`
+The development server will be available at: `http://localhost:3000`
 
-### Build per la Produzione
+### Build for Production
 
 ```bash
 npm run build
 ```
 
-I file ottimizzati saranno generati nella cartella `dist/`
+The optimized files will be generated in the `dist/` folder
 
-> **Nota**: Il comando `npm run build` esegue automaticamente la generazione del file `github-data.json` prima di creare la build.
+> **Note**: The `npm run build` command automatically generates the `github-data.json` file before creating the build.
 
-### Preview della Build
+### Preview the Build
 
 ```bash
 npm run preview
 ```
 
-Visualizza l'applicazione in locale prima del deploy.
+View the application locally before deploying.
 
-## 📁 Struttura del Progetto
+## 📁 Project Structure
 
 ```
 WinToolkit-Landing/
-├── public/                  # File statici
-│   ├── header.jpg          # Banner principale
-│   ├── WinToolkit-icon.png # Icona del progetto
-│   └── github-data.json    # Dati GitHub (auto-generato)
-├── src/                     # Codice sorgente
-│   ├── components/         # Componenti React riutilizzabili
+├── public/                  # Static files
+│   ├── header.jpg          # Main banner
+│   ├── WinToolkit-icon.png # Project icon
+│   └── github-data.json    # GitHub data (auto-generated)
+├── src/                     # Source code
+│   ├── components/         # Reusable React components
 │   │   ├── CommunitySection.tsx
 │   │   ├── CopyCommand.tsx
 │   │   ├── DescriptionBox.tsx
@@ -130,17 +130,17 @@ WinToolkit-Landing/
 │   ├── hooks/              # Custom hooks
 │   │   ├── useGitHubData.ts
 │   │   └── useLazySection.ts
-│   ├── i18n/               # Internazionalizzazione (IT/EN)
+│   ├── i18n/               # Internationalization (IT/EN)
 │   │   ├── LanguageContext.tsx
 │   │   └── translations.ts
-│   ├── types/              # Definizioni TypeScript
+│   ├── types/              # TypeScript definitions
 │   │   └── index.ts
-│   ├── utils/              # Funzioni di utilità
+│   ├── utils/              # Utility functions
 │   │   └── cache.ts
-│   ├── App.tsx             # Componente principale
-│   ├── index.css           # Stili globali
+│   ├── App.tsx             # Main component
+│   ├── index.css           # Global styles
 │   └── main.tsx            # Entry point
-├── dist/                   # Build di produzione
+├── dist/                   # Production build
 ├── .github/workflows/      # GitHub Actions
 ├── index.html
 ├── package.json
@@ -148,14 +148,14 @@ WinToolkit-Landing/
 └── vite.config.ts
 ```
 
-## 📄 Licenza
+## 📄 License
 
-Questo progetto è distribuito sotto licenza **MIT**. Per maggiori dettagli, consulta il file [LICENSE](LICENSE).
+This project is distributed under the **MIT** license. For more details, see the [LICENSE](LICENSE) file.
 
 ---
 
-## 🎗 Autore
+## 🎗 Author
 
-Creato con ❤️ da [Magnetarman](https://magnetarman.com/).
+Created with ❤️ by [Magnetarman](https://magnetarman.com/).
 
 ---
