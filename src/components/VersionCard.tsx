@@ -1,4 +1,5 @@
 import type { VersionStatus } from "../types";
+import { useTranslation } from "../i18n/LanguageContext";
 
 interface VersionCardProps {
   windows: string;
@@ -6,6 +7,7 @@ interface VersionCardProps {
 }
 
 export function VersionCard({ windows, supported }: VersionCardProps) {
+  const { t } = useTranslation();
   const colors = {
     yes: {
       text: "text-emerald-400",
@@ -25,12 +27,7 @@ export function VersionCard({ windows, supported }: VersionCardProps) {
   };
   const status = colors[supported];
 
-  const label =
-    supported === "yes"
-      ? "Sì"
-      : supported === "partial"
-        ? "Parzialmente"
-        : "No";
+  const label = t.requirements.status[supported];
 
   return (
     <div className="flex flex-col justify-center items-center p-4 sm:p-6 bg-white/5 rounded-2xl border border-white/10 text-center hover:bg-white/10 hover:border-white/20 hover:shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1 transition-all duration-500 min-h-[44px]">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Youtube } from "lucide-react";
+import { Play } from "lucide-react";
 import { useTranslation } from "../i18n/LanguageContext";
 
 const PLAYLIST_ID = "PLKjm1pV4uO8VNXieuyHfpwWEDcjo2Hi9s";
@@ -23,7 +23,7 @@ export function YouTubeSection() {
         {/* Title */}
         <div className="flex items-center justify-center gap-3 sm:gap-4 p-4 sm:p-6 md:p-8 pb-0">
           <div className="p-2 sm:p-3 bg-red-500/20 rounded-2xl border border-red-500/30 backdrop-blur-md">
-            <Youtube className="text-red-400" size={24} />
+            <Play className="text-red-400" size={24} />
           </div>
           <h2 className="relative text-2xl sm:text-3xl font-bold text-white tracking-wide">
             {t.youtube.title}
@@ -46,7 +46,7 @@ export function YouTubeSection() {
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 animate-pulse flex items-center justify-center z-10">
                   <div className="flex flex-col items-center gap-4">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-500/20 flex items-center justify-center">
-                      <Youtube className="text-red-500" size={32} />
+                      <Play className="text-red-500" size={32} />
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export function YouTubeSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500/50 rounded-full text-red-400 hover:text-red-300 text-sm font-medium transition-all duration-200"
             >
-              <Youtube size={16} />
+              <Play size={16} />
               {t.youtube.viewPlaylist}
             </a>
           </div>

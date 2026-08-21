@@ -29,10 +29,18 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           // Manual chunks for better caching
-          manualChunks: {
-            "vendor-react": ["react", "react-dom"],
-            "vendor-motion": ["motion"],
-            "vendor-lucide": ["lucide-react"],
+          manualChunks(id, { getModuleInfo }) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react") || id.includes("react-dom") || id.includes("scheduler")) {
+                return "vendor-react";
+              }
+              if (id.includes("motion")) {
+                return "vendor-motion";
+              }
+              if (id.includes("lucide-react")) {
+                return "vendor-lucide";
+              }
+            }
           },
         },
       },

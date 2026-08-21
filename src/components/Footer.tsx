@@ -1,4 +1,4 @@
-import { Github, Send } from "lucide-react";
+import { GitBranch, Send } from "lucide-react";
 import { FooterLink } from "./FooterLink";
 import { useTranslation } from "../i18n/LanguageContext";
 
@@ -37,9 +37,9 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 flex-wrap justify-center">
           <FooterLink
             href="https://github.com/Magnetarman/WinToolkit"
-            icon={<Github size={18} />}
-            text="GitHub Repo"
-            ariaLabel="Visita la repository GitHub di WinToolkit"
+            icon={<GitBranch size={18} />}
+            text="Github Repo"
+            ariaLabel="Visita la repository Github di WinToolkit"
           />
           <FooterLink
             href="https://t.me/MagnetarManFeed"

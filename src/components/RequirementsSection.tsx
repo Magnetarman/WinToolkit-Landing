@@ -2,6 +2,7 @@ import { Settings, Wifi, HardDrive, Monitor } from "lucide-react";
 import { motion } from "motion/react";
 import { VersionCard } from "./VersionCard";
 import { useTranslation } from "../i18n/LanguageContext";
+import type { VersionStatus } from "../types";
 
 export function RequirementsSection() {
   const { t } = useTranslation();
@@ -35,6 +36,10 @@ export function RequirementsSection() {
           </h2>
         </div>
 
+        <p className="text-slate-300 text-sm sm:text-base font-light mb-6 sm:mb-8">
+          {t.requirements.note}
+        </p>
+
         <div className="grid md:grid-cols-1 gap-8 sm:gap-12">
           <div>
             <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">
@@ -65,13 +70,10 @@ export function RequirementsSection() {
               {t.requirements.supportedVersions}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-              <VersionCard windows="Windows 11 >= 22H2" supported="yes" />
-              <VersionCard windows="Windows 10 >= 1809" supported="yes" />
-              <VersionCard windows="Windows 11 <= 21H2" supported="partial" />
-              <VersionCard windows="Windows 10 <= 1809" supported="partial" />
-              <VersionCard windows="Windows 8.1" supported="no" />
-              <VersionCard windows="Windows 8 e inferiori" supported="no" />
-            </div>
+               {t.requirements.versions.map((v) => (
+                 <VersionCard key={v.name} windows={v.name} supported={v.status as VersionStatus} />
+               ))}
+             </div>
           </div>
         </div>
       </div>

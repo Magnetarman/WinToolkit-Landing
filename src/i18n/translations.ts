@@ -5,16 +5,30 @@ export const translations = {
     },
     description: {
       title: "Cos'è WinToolkit?",
-      text: "WinToolkit è una suite di script PowerShell potente e compatta, progettata per offrire a professionisti IT, amministratori di sistema e utenti esperti un controllo granulare sulla manutenzione e sulla risoluzione dei problemi di Windows e della Suite Office. Questo toolkit intuitivo aggrega gli strumenti di riparazione di sistema più efficaci in un'unica interfaccia, automatizzando i processi complessi per ottimizzare le prestazioni e ripristinare la stabilità del sistema con pochi passaggi automatizzati. Questo progetto è traslitterato tramite un workflow AI.",
+      text: "WinToolkit è una suite potente e compatta di script PowerShell, ispirata all'eccezionale lavoro di @ChrisTitusTech Wintutil, progettata per offrire a professionisti IT, amministratori di sistema e utenti esperti un controllo granulare e automatizzato sulla manutenzione e sulla risoluzione dei problemi di Windows e della Suite Office. Questo toolkit intuitivo riunisce gli strumenti di riparazione di sistema più efficaci in un'unica interfaccia, automatizzando processi complessi per ottimizzare le prestazioni e ripristinare la stabilità del sistema in pochi semplici passaggi automatizzati. Questo progetto è stato tradotto tramite un workflow basato sull'intelligenza artificiale.",
     },
     requirements: {
       title: "Avvia WinToolkit",
       prerequisitesTitle: "Requisiti Minimi",
       prerequisites: "Prerequisiti",
       supportedVersions: "Versioni Supportate",
+      note: "Prima di avviare il toolkit, assicurati di soddisfare questi requisiti:",
       internet: "Connessione ad Internet",
-      diskSpace: "Spazio libero su disco: > 50 GB",
-      windows: "Windows > 8.1",
+      diskSpace: "Spazio libero su disco: >= 50 GB",
+      windows: "Windows >= 10 (1809)",
+      status: {
+        yes: "Sì",
+        partial: "Parzialmente",
+        no: "No",
+      },
+      versions: [
+        { name: "Windows 11 >= 22H2", status: "yes" },
+        { name: "Windows 10 >= 1809", status: "yes" },
+        { name: "Windows 11 <= 21H2", status: "partial" },
+        { name: "Windows 10 <= 1809", status: "no" },
+        { name: "Windows 8.1", status: "no" },
+        { name: "Windows 8 e versioni precedenti", status: "no" },
+      ],
     },
     versionTabs: {
       stable: "Versione Stabile",
@@ -23,15 +37,19 @@ export const translations = {
       devShort: "Dev",
       gui: "Versione GUI",
       guiShort: "GUI",
-      stableDesc: "La versione stabile e testata. Consigliata per l'uso quotidiano e per tutti gli utenti che cercano affidabilità.",
-      devDesc: "Versione sperimentale. Potenziali bug critici, instabilità. Uso a proprio rischio per test e sviluppo.",
-      guiDesc: "Versione ALPHA. Potenziali bug critici, instabilità, funzionalità incomplete. Uso a proprio rischio per test e feedback.",
+      stableDesc:
+        "La versione stabile e testata. Consigliata per l'uso quotidiano e per tutti gli utenti che cercano affidabilità.",
+      devDesc:
+        "Versione sperimentale. Potenziali bug critici, instabilità. Uso a proprio rischio per test e sviluppo.",
+      guiDesc:
+        "Versione ALPHA. Potenziali bug critici, instabilità, funzionalità incomplete. Uso a proprio rischio per test e feedback.",
       step1: "1. Avvia PowerShell come amministratore",
       step2: "2. Incolla il comando:",
     },
     stats: {
       title: "Versioni Wintoolkit",
-      error: "Impossibile caricare le statistiche. I dati potrebbero non essere aggiornati.",
+      error:
+        "Impossibile caricare le statistiche. I dati potrebbero non essere aggiornati.",
       stable: "Versione Stabile",
       stableDesc: "Ultima release stabile",
       dev: "Versione DEV",
@@ -63,7 +81,8 @@ export const translations = {
     community: {
       title: "Partecipa al progetto",
       telegramTitle: "Gruppo di Discussione",
-      telegramDesc: "Unisciti alla community su Telegram per supporto e feedback.",
+      telegramDesc:
+        "Unisciti alla community su Telegram per supporto e feedback.",
       githubTitle: "Dona una Stella",
       githubDesc: "Supporta il progetto su GitHub per renderlo più visibile.",
       youtubeTitle: "Iscriviti al Canale",
@@ -77,7 +96,7 @@ export const translations = {
     },
     footer: {
       slogan: "Sopravvivi a Windows, con stile",
-      version: "WinToolkit Landing Page V 1.4.0 - Designed By",
+      version: "WinToolkit Landing Page V 1.4.1 - Designed By",
       codedBy: "| Coded by Gemini",
     },
     switch: {
@@ -91,20 +110,34 @@ export const translations = {
   },
   en: {
     hero: {
-      tagline: "The ultimate PowerShell Tool to survive Windows",
+      tagline: "Master Windows with Ease",
     },
     description: {
       title: "What is WinToolkit?",
-      text: "WinToolkit is a powerful and compact suite of PowerShell scripts, designed to give IT professionals, system administrators, and power users granular control over Windows and Office Suite maintenance and troubleshooting. This intuitive toolkit aggregates the most effective system repair tools into a single interface, automating complex processes to optimize performance and restore system stability with just a few automated steps. This project is transliterated via an AI workflow.",
+      text: "WinToolkit is a powerful and compact suite of PowerShell scripts, inspired by the outstanding work of @ChrisTitusTech Wintutil, designed to provide IT professionals, system administrators, and power users with granular yet automated control over the maintenance and troubleshooting of Windows and the Office suite. This intuitive toolkit brings together the most effective system repair tools in a single interface, automating complex processes to optimize performance and restore system stability in just a few automated steps. This project was translated using an AI-powered workflow.",
     },
     requirements: {
       title: "Launch WinToolkit",
       prerequisitesTitle: "Minimum Requirements",
       prerequisites: "Prerequisites",
       supportedVersions: "Supported Versions",
+      note: "Before starting the toolkit, make sure you meet these requirements:",
       internet: "Internet Connection",
-      diskSpace: "Free disk space: > 50 GB",
-      windows: "Windows > 8.1",
+      diskSpace: "Free disk space: >= 50 GB",
+      windows: "Windows >= 10 (1809)",
+      status: {
+        yes: "Yes",
+        partial: "Partially",
+        no: "No",
+      },
+      versions: [
+        { name: "Windows 11 >= 22H2", status: "yes" },
+        { name: "Windows 10 >= 1809", status: "yes" },
+        { name: "Windows 11 <= 21H2", status: "partial" },
+        { name: "Windows 10 <= 1809", status: "no" },
+        { name: "Windows 8.1", status: "no" },
+        { name: "Windows 8 and earlier", status: "no" },
+      ],
     },
     versionTabs: {
       stable: "Stable Version",
@@ -113,9 +146,12 @@ export const translations = {
       devShort: "Dev",
       gui: "GUI Version",
       guiShort: "GUI",
-      stableDesc: "The stable and tested version. Recommended for daily use and for all users seeking reliability.",
-      devDesc: "Experimental version. Potential critical bugs, instability. Use at your own risk for testing and development.",
-      guiDesc: "ALPHA version. Potential critical bugs, instability, incomplete features. Use at your own risk for testing and feedback.",
+      stableDesc:
+        "The stable and tested version. Recommended for daily use and for all users seeking reliability.",
+      devDesc:
+        "Experimental version. Potential critical bugs, instability. Use at your own risk for testing and development.",
+      guiDesc:
+        "ALPHA version. Potential critical bugs, instability, incomplete features. Use at your own risk for testing and feedback.",
       step1: "1. Launch PowerShell as administrator",
       step2: "2. Paste the command:",
     },
@@ -132,7 +168,8 @@ export const translations = {
     repoStatus: {
       title: "Repository Status",
       errorTitle: "Loading Error",
-      errorText: "Unable to retrieve data from the server. Please try again later.",
+      errorText:
+        "Unable to retrieve data from the server. Please try again later.",
       openIssues: "Open Issues",
       issuesDesc: "Open bug reports",
       pullRequests: "Pull Requests",
@@ -167,7 +204,7 @@ export const translations = {
     },
     footer: {
       slogan: "Survive Windows, with style",
-      version: "WinToolkit Landing Page V 1.4.0 - Designed By",
+      version: "WinToolkit Landing Page V 1.4.1 - Designed By",
       codedBy: "| Coded by Gemini",
     },
     switch: {
